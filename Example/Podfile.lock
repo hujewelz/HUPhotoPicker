@@ -1,0 +1,16 @@
+PODS:
+  - HUPhotoPicker (0.1.0)
+
+DEPENDENCIES:
+  - HUPhotoPicker (from `../`)
+
+EXTERNAL SOURCES:
+  HUPhotoPicker:
+    :path: ../
+
+SPEC CHECKSUMS:
+  HUPhotoPicker: 266bb0b2af0f38dd044f1898eddfdf2cf34ae91a
+
+PODFILE CHECKSUM: 15d9fdb0141b608acaa12a0e83598405cb088bb5
+
+COCOAPODS: 1.2.1

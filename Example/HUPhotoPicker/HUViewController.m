@@ -7,6 +7,8 @@
 //
 
 #import "HUViewController.h"
+//#import <HUPhotoPicker/HUPhotoPicker-umbrella.h>
+#import <HUPhotoPicker/HUPhotoPicker.h>
 
 @interface HUViewController ()
 
@@ -20,10 +22,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)pickImage:(id)sender {
+    
+    HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+    [self presentViewController:picker animated:YES completion:nil];
 }
+
 
 @end

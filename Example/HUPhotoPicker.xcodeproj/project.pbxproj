@@ -40,7 +40,7 @@
 		117C2F0768BA121B24E1F347 /* Pods-HUPhotoPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoPicker_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoPicker_Example/Pods-HUPhotoPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
 		377694A01A144A580FB403E1 /* Pods_HUPhotoPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUPhotoPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9C4FD8F54F00D3791F81E3 /* Pods_HUPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUPhotoPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C83AF3934E824A51DEBFC3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5C83AF3934E824A51DEBFC3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HUPhotoPicker_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUPhotoPicker_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,8 +61,8 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83F2BDD463E5D6C164062EC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		86ABCD1700BE063646CCAB36 /* HUPhotoPicker.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HUPhotoPicker.podspec; path = ../HUPhotoPicker.podspec; sourceTree = "<group>"; };
+		83F2BDD463E5D6C164062EC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		86ABCD1700BE063646CCAB36 /* HUPhotoPicker.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HUPhotoPicker.podspec; path = ../HUPhotoPicker.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D50D9D4F81D0B3283C10C82 /* Pods-HUPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoPicker_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoPicker_Example/Pods-HUPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DBF9C27AC8575EA41AC37570 /* Pods-HUPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoPicker_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoPicker_Tests/Pods-HUPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = huluobobo;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = E82AQF52S8;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -524,6 +527,7 @@
 			baseConfigurationReference = 9D50D9D4F81D0B3283C10C82 /* Pods-HUPhotoPicker_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E82AQF52S8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUPhotoPicker/HUPhotoPicker-Prefix.pch";
 				INFOPLIST_FILE = "HUPhotoPicker/HUPhotoPicker-Info.plist";
@@ -539,6 +543,7 @@
 			baseConfigurationReference = 117C2F0768BA121B24E1F347 /* Pods-HUPhotoPicker_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E82AQF52S8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUPhotoPicker/HUPhotoPicker-Prefix.pch";
 				INFOPLIST_FILE = "HUPhotoPicker/HUPhotoPicker-Info.plist";

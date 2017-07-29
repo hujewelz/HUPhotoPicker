@@ -32,11 +32,11 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'HUPhotoPicker/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'HUPhotoPicker' => ['HUPhotoPicker/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'HUPhotoPicker' => ['HUPhotoPicker/Assets/*.{xib,png}']
+  }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.public_header_files = 'Pod/Classes/**/HUPhotoPicker.h'
+  # s.frameworks = 'UIKit', 'Photo'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
