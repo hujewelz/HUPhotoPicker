@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		185D526029BCA6423CDFC73F /* Pods_HUPhotoPicker_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377694A01A144A580FB403E1 /* Pods_HUPhotoPicker_Tests.framework */; };
+		51FC7EAA1F2EC47300CA06F6 /* HUCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FC7EA91F2EC47300CA06F6 /* HUCollectionViewCell.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 		117C2F0768BA121B24E1F347 /* Pods-HUPhotoPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoPicker_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoPicker_Example/Pods-HUPhotoPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
 		377694A01A144A580FB403E1 /* Pods_HUPhotoPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUPhotoPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9C4FD8F54F00D3791F81E3 /* Pods_HUPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUPhotoPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51FC7EA81F2EC47300CA06F6 /* HUCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCollectionViewCell.h; sourceTree = "<group>"; };
+		51FC7EA91F2EC47300CA06F6 /* HUCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCollectionViewCell.m; sourceTree = "<group>"; };
 		5C83AF3934E824A51DEBFC3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HUPhotoPicker_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUPhotoPicker_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				51FC7EA81F2EC47300CA06F6 /* HUCollectionViewCell.h */,
+				51FC7EA91F2EC47300CA06F6 /* HUCollectionViewCell.m */,
 			);
 			name = "Example for HUPhotoPicker";
 			path = HUPhotoPicker;
@@ -398,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* HUAppDelegate.m in Sources */,
+				51FC7EAA1F2EC47300CA06F6 /* HUCollectionViewCell.m in Sources */,
 				6003F5A7195388D20070C39A /* HUViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -531,6 +537,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUPhotoPicker/HUPhotoPicker-Prefix.pch";
 				INFOPLIST_FILE = "HUPhotoPicker/HUPhotoPicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,6 +554,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUPhotoPicker/HUPhotoPicker-Prefix.pch";
 				INFOPLIST_FILE = "HUPhotoPicker/HUPhotoPicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -14,7 +14,7 @@
 #import "Asset.h"
 #import "UIView+HUConstraint.m"
 #import "UIBarButtonItem+HUButton.h"
-#import "HUPhotoHelper.h"
+#import "HUPhotoManager.h"
 
 @interface HUImageGridViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UIGestureRecognizerDelegate>
 
@@ -225,7 +225,7 @@
 
 - (void)fetchPhotoWithAsset:(NSArray<PHAsset *> *)assets {
     
-    [[HUPhotoHelper sharedInstance] fetchPhotosWithAssets:assets progress:nil completed:^(NSArray<UIImage *> * _Nonnull images) {
+    [[HUPhotoManager sharedInstance] fetchPhotosWithAssets:assets progress:nil completed:^(NSArray<UIImage *> * _Nonnull images) {
         if (![self.navigationController isKindOfClass:[HUImagePickerViewController class]]) {
             //                        [SVProgressHUD dismiss];
             return;

@@ -6,10 +6,10 @@
 //
 //
 
-#import "HUPhotoHelper.h"
+#import "HUPhotoManager.h"
 #import <Photos/Photos.h>
 
-@interface HUPhotoHelper()
+@interface HUPhotoManager()
 
 @property (nonatomic, copy) NSMutableDictionary<NSString *, UIImage *> *imageCache;
 @property (nonatomic, copy) NSMutableDictionary<NSString *, NSNumber *> * imageRequestIDs;
@@ -17,13 +17,13 @@
 
 @end
 
-@implementation HUPhotoHelper
+@implementation HUPhotoManager
 
 + (instancetype)sharedInstance {
-    static HUPhotoHelper *shared = nil;
+    static HUPhotoManager *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shared = [[HUPhotoHelper alloc] init];
+        shared = [[HUPhotoManager alloc] init];
     });
     return shared;
 }
@@ -35,10 +35,7 @@
     return self;
 }
 
-- (void)clearCache {
-    [self.imageCache removeAllObjects];
-    [self.imageRequestIDs removeAllObjects];
-}
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -173,6 +170,10 @@
     }
 }
 
+- (BOOL)isPhotoDownloaded:(PHAsset *)asset {
+    return true;
+}
+
 - (void)cancelPhotoRequestWithAsset:(PHAsset *)asset {
     NSNumber *idNumber = [self.imageRequestIDs objectForKey:asset.localIdentifier];
     if (!idNumber) {
@@ -180,6 +181,13 @@
     }
     
     [[PHImageManager defaultManager] cancelImageRequest:idNumber.intValue];
+}
+
+
+
+- (void)clearCache {
+    [self.imageCache removeAllObjects];
+    [self.imageRequestIDs removeAllObjects];
 }
 
 #pragma mark - getter

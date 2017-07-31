@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class PHAsset;
-@interface HUPhotoHelper : NSObject
+@interface HUPhotoManager : NSObject
 
 
 + (nonnull instancetype)sharedInstance;
@@ -24,6 +24,6 @@
 
 - (void)cancelPhotoRequest;
 
-- (BOOL)isPhotoDownloaded:(PHAsset *)asset;
+- (BOOL)isPhotoDownloaded:(nonnull PHAsset *)asset;
 
 @end
