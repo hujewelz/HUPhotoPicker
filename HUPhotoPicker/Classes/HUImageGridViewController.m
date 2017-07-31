@@ -58,6 +58,21 @@
     [self setupData];
 }
 
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    [self.collectionView setContentOffset:CGPointMake(0, self.collectionView.contentSize.height - self.collectionView.frame.size.height) animated:NO];
+}
+
+- (void)dealloc {
+    
+    if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
+        [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+    }
+}
+
+
 - (void)setupData {
     [self setupView];
     
@@ -76,12 +91,6 @@
     
 }
 
-- (void)dealloc {
-    
-    if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
-        [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
-    }
-}
 
 - (void)setFetchResult:(PHFetchResult<PHAsset *> *)fetchResult {
     _fetchResult = fetchResult;
