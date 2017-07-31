@@ -1,18 +1,18 @@
 {
   "name": "HUPhotoPicker",
   "version": "0.1.0",
-  "summary": "A short description of HUPhotoPicker.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/huluobobo/HUPhotoPicker",
+  "summary": "本地图片选择器.",
+  "description": "本地图片选择器，支持图片多选",
+  "homepage": "https://github.com/hujewelz/HUPhotoPicker",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "huluobobo": "hujewelz@163.com"
+    "hujewelz": "hujewelz@163.com"
   },
   "source": {
-    "git": "https://github.com/huluobobo/HUPhotoPicker.git",
+    "git": "https://github.com/hujewelz/HUPhotoPicker.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -24,5 +24,9 @@
       "HUPhotoPicker/Assets/*.{xib,png}"
     ]
   },
-  "public_header_files": "Pod/Classes/**/HUPhotoPicker.h"
+  "public_header_files": "HUPhotoPicker/Classes/**/{HUPhotoPicker,HUPhotoManager,HUImagePickerViewController}.h",
+  "frameworks": [
+    "UIKit",
+    "Photos"
+  ]
 }

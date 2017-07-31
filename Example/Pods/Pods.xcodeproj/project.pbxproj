@@ -7,139 +7,143 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04BFA4027EDD2B5226348DA79A09F402 /* HUImageSelectModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CEF1E218771EBB138BDF650B8B400DF0 /* HUImageSelectModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C5004C933EFF1D8BF7F97B89632CF6B /* image_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E455D8AC456DDBFAB93C50CB71F30C /* image_selected@2x.png */; };
-		2B379F2A7DCE58CBF501F4C5DFEEF486 /* HUPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */; };
-		3597CB115556733D7E4BF0A9A48E24FB /* HUAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F66B3FAA451472AAEB2312FBCCA5AB92 /* HUAlbumCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3862DD606FF34A0D84B8742338B7C760 /* HUAlbumTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C352788E0CB8BE9C47A629991C7FC5BE /* HUAlbumTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F50A337AE80430FEC02A39743AF75CD /* HUImageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC3C0DC55FFD6D2B584AA04410FAECA /* HUImageSelectModel.m */; };
-		4018A75AAA052068D08EFDD085829B33 /* HUPHAuthorizationNotDeterminedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C7E4A5EA5E36EDACDB1DE576B54BF9 /* HUPHAuthorizationNotDeterminedView.m */; };
-		496B6D85290CC6D1AD05A995C83BCFD3 /* NSBundle+HUPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B14CC405D84FEFAE93734CBE03ECEB76 /* NSBundle+HUPicker.m */; };
-		51FC7E9F1F2C7CED00CA06F6 /* HUPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 51FC7E9D1F2C7CED00CA06F6 /* HUPhotoManager.h */; };
-		51FC7EA01F2C7CED00CA06F6 /* HUPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FC7E9E1F2C7CED00CA06F6 /* HUPhotoManager.m */; };
+		07B9A9F2A7056AB741A177F09B78489F /* HUImageSelectModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE8756CE9521297A9057A5A2FD77F64 /* HUImageSelectModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1142BE8EDAC4AFB2FB6E3A0A0773D015 /* zp_icon_select_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E03B90A175383EA579F5C9B85FA195E /* zp_icon_select_no@2x.png */; };
+		186C413F3337B0F8271C4AC65C36DA4B /* nav_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C640FE2C16EB0F5AF97ED7F0F2E36D1 /* nav_back@3x.png */; };
+		1F7A86ACE9461FE7E338C93C44127241 /* NSBundle+HUPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = F99FF310986C192B7905433B287B17D9 /* NSBundle+HUPicker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1F99D498A7F8B060C0BFDAD2B16E65CD /* HUImageGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935F2A0E76BBB909354AE29C3330E627 /* HUImageGridViewController.m */; };
+		270DFB73C1AA1AE1C8F969AFEF25B987 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D12AD3935463129FF3404181117FCC /* nav_back@2x.png */; };
+		31641EF610029D35F045E49648CEEE07 /* zp_icon_select_no@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EE24BE56A1924E9D826233754AE7B0 /* zp_icon_select_no@3x.png */; };
+		32FDA717C871E5DE2DA49B6090A3296D /* NSBundle+HUPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 472484183BCA967BB5D6C2ECC75B1AD2 /* NSBundle+HUPicker.m */; };
+		3AD94F79A4213F14B9E70F54CC9CD3E7 /* HUImageGridCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 014EBF96D5C5FCD16396FBF832EA3A30 /* HUImageGridCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		40CFF6938F28E71A623FF8E4B9C82A19 /* HUImageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42026A93EEAC366384BD913B6716E854 /* HUImageSelectModel.m */; };
+		46A0071B856529479D57F9614A20CD44 /* HUImagePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B73BB3567324F754B755437196A43EA /* HUImagePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4927636BF8CC25980DB6E6601B47DBC6 /* HUImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD39879E3F1216DBE938964C58B4D2ED /* HUImagePickerViewController.m */; };
+		4D582799A7AB605D5F3F8DDCB63247BD /* HUImageGridViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AC0E450E03AE0BD8C07132654C392ED5 /* HUImageGridViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		521C4C7B1686EA2556EC12525CCB5D1D /* Pods-HUPhotoPicker_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BA1BE88BBF17A2A105043910EEFB73 /* Pods-HUPhotoPicker_Tests-dummy.m */; };
-		54FBBF70C7ABD04BEF21E311BBF9BCD8 /* HUImagePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DCDA1E6D64484A1D26B3D3739CB06D0C /* HUImagePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		570623447A6EAD3EFA21CA2C59BE0C41 /* Jurisdiction_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4814A825000D6ED8CD7C63108D3E87 /* Jurisdiction_icon@3x.png */; };
-		5990587D9EBE0685E24D3B21CFFBCFBC /* HUAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24706CD2CA65DD8541DA4B3620F09DB /* HUAlbumTableViewController.m */; };
-		5F82728620BC5DDD466A4ABF7547147C /* HUAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83EFD674600B551A14583AC23069845 /* HUAlbumCell.m */; };
-		60BAC72C811EE4529B74E3C0DBCDBCFA /* UIView+HUConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 993F04E4EF82FB779535124E25224AC1 /* UIView+HUConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		632367502A0049688E6E10CDD9BB988B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		73FC30CB9450421907885EF4F4F26F5D /* HUImageGridViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 807F1B551D2148328AF437008B1879CB /* HUImageGridViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7AB586FCFCCC35E308CA80385FC812F5 /* UIView+HUConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E8EB8B8C0C057387305214A45DED37 /* UIView+HUConstraint.m */; };
-		7E087AC8F4B288CC76387B228AC51554 /* Asset.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D458E2E8AFB771A144A2F444EDA2A81 /* Asset.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E9EB203226F8999E920F72CABFAFC69 /* Jurisdiction_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1224EE29502CEE6118992FC049E206AD /* Jurisdiction_icon@2x.png */; };
-		8CE1C881555E43195E95461F46532C5B /* HUPhotoPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F64E676A7310A2305EDB7FBCE9F72B8 /* HUPhotoPicker-dummy.m */; };
-		90C949496B02D9DC7A206325760F095B /* nav_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C640FE2C16EB0F5AF97ED7F0F2E36D1 /* nav_back@3x.png */; };
-		9365CA82C3B4DD3DC758F107184E3C73 /* HUPHAuthorizationNotDeterminedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 24C3A74166A6AE40205D891F7ED0ECF1 /* HUPHAuthorizationNotDeterminedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		999997221E71EC8C5940261573CADE75 /* HUAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16E26392E970F2C0EC9A533327F35A7 /* HUAlbumCell.xib */; };
-		A27FFF7FC4A7EC39782091B78CC66300 /* HUPHAuthorizationNotDeterminedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D52549E79C12B552C6F411D52E7A544 /* HUPHAuthorizationNotDeterminedViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A39A6A80C87F4383643FB7A04BE9B68C /* HUPHAuthorizationNotDeterminedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69643AF1C60EA06BE1120AC7B7B7BC /* HUPHAuthorizationNotDeterminedViewController.m */; };
-		A7DCBDE76D6FADEF5030384D083AC9CE /* NSBundle+HUPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6EAC39A29174731A35EEE6498482EC /* NSBundle+HUPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A879B3587694B449380551909046E72E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		B691E326E77FF376A8AF4FFDAC048172 /* UIBarButtonItem+HUButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A030ABAA15826A891D87DB54785EF3BD /* UIBarButtonItem+HUButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B74AE9FF2F99B8A4D9E9EF3C525BDC80 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D12AD3935463129FF3404181117FCC /* nav_back@2x.png */; };
-		B7599CB57E229F54E6B6B65FE66A0944 /* HUPhotoPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1FA7245F87068FDDA8900325D0ECC3 /* HUPhotoPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52EDD40236EB5C0752AD43B8A22AA209 /* HUPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BDCA09C79AEE10A1ED09A55F53D81F5B /* HUPhotoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60349CD90AEB6776ED0D431CBBC437FE /* HUAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A031D7760BA93C093137D426806995 /* HUAlbumCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		701C4B6C447CA31D597581D592A22191 /* UIBarButtonItem+HUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AB530FFB268A02B8EC0AECF8C2A8C5 /* UIBarButtonItem+HUButton.m */; };
+		74A814BABEC0F9ADA500A89DE82A6BD8 /* image_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440F7EB2EE1EBE1232B86327D31CB913 /* image_selected@3x.png */; };
+		7B3158B6C7322D922F1A23BEC78FCDAB /* Jurisdiction_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4814A825000D6ED8CD7C63108D3E87 /* Jurisdiction_icon@3x.png */; };
+		83EBC97EC7E3E5E31A32A10C1D5481BF /* HUPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */; };
+		892AD6FECC7C202D0FAFF30E2B8B23CB /* image_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E455D8AC456DDBFAB93C50CB71F30C /* image_selected@2x.png */; };
+		8F4D08F306CF77EDAD9631A777FD6085 /* UIBarButtonItem+HUButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BEDA5A410CA4E9828D668530403EC02 /* UIBarButtonItem+HUButton.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		90EB91E2C7AC4FF9E1D4E8279AA84BD4 /* HUPHAuthorizationNotDeterminedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 23B0C3ECB54DC2EE99FB80E75AE12548 /* HUPHAuthorizationNotDeterminedViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		991259686C53B8382762B6C0526AA255 /* HUPhotoPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F64E676A7310A2305EDB7FBCE9F72B8 /* HUPhotoPicker-dummy.m */; };
+		9F0669E2B9B4DE39CFA20AD3DD4D7C87 /* Asset.h in Headers */ = {isa = PBXBuildFile; fileRef = 71FBFF485D059F421A11C6C16F445521 /* Asset.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9F7F161A948613D6438471305C91330A /* HUPHAuthorizationNotDeterminedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B87E66FFDFC65BE5DAD0EB90F2CB216 /* HUPHAuthorizationNotDeterminedView.m */; };
+		A5435913A184B8E914D6AB527D7DFBEB /* HUPHAuthorizationNotDeterminedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C379D7FAAD22956858554B429BDA35C /* HUPHAuthorizationNotDeterminedViewController.m */; };
+		A56A1661A38E346E0210AF88D445CC29 /* HUAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6557FE4AA5AACF0190DEBD22A05C3030 /* HUAlbumTableViewController.m */; };
+		A879B3587694B449380551909046E72E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AF6E9E67D620E639E17F9B0A8B56EF /* Foundation.framework */; };
+		AAC817BF654195CE0FF1DECDB6C9C50B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AF6E9E67D620E639E17F9B0A8B56EF /* Foundation.framework */; };
+		B7806714DBB5CEA80EDB4430F17970D4 /* HUAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16E26392E970F2C0EC9A533327F35A7 /* HUAlbumCell.xib */; };
+		BC7B257A4305FDDC58C75B73B042F6A5 /* HUAlbumTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E653E5FE90DAD58221CEB20BCF8B001 /* HUAlbumTableViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BDCC5AB55E59DBE1DD0A2D6446DF8CFE /* Pods-HUPhotoPicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBC1131000D1841E9CA3201EA6435F0 /* Pods-HUPhotoPicker_Example-dummy.m */; };
-		BFBDE3E8B50654B94567D71F1BB8BB6B /* HUImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1BC4CA36A1621154C9A0385E0CEAA /* HUImagePickerViewController.m */; };
-		D236270B16CF0E42484C6FDE03FC7A1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D3CE782680B3C959CED779DA5901AE92 /* HUPhotoPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DED5780C57BF06526D7F7E43E7018FB5 /* HUPhotoPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D5964494818CEA2C909668A09B0BCDBE /* HUImageGridCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC2DAB95B2EA57527A61DDF3757CAA5 /* HUImageGridCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D734B02207FD6CFCF54E74C59FAC858E /* image_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440F7EB2EE1EBE1232B86327D31CB913 /* image_selected@3x.png */; };
-		DA4B575632C8988A81F76BD1AA397746 /* zp_icon_select_no@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EE24BE56A1924E9D826233754AE7B0 /* zp_icon_select_no@3x.png */; };
-		DBC2C2EFD8A2089F73F1E310D09D2F03 /* zp_icon_select_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E03B90A175383EA579F5C9B85FA195E /* zp_icon_select_no@2x.png */; };
-		E6CF3CDFD0DE883D529D206B414C49ED /* UIBarButtonItem+HUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B78360D997AA508DE3414B04E19B15 /* UIBarButtonItem+HUButton.m */; };
-		EC48029712838096B76DA36D7CF59735 /* HUImageGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CE386BBE49D7A55EED3B81A1DE4CB4 /* HUImageGridViewController.m */; };
+		C026B5A9FB4CA8BBD6C7E2047845AB8D /* UIView+HUConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6BFC62DDF8589B2B334527787FC12 /* UIView+HUConstraint.m */; };
+		CADC1D20456A676B00E1224A3EF9D832 /* HUPhotoPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 70F74A4F43A0ABF8A0E541644C0C7A22 /* HUPhotoPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCCCC3363864520F93678BFB593C753D /* Jurisdiction_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1224EE29502CEE6118992FC049E206AD /* Jurisdiction_icon@2x.png */; };
+		D236270B16CF0E42484C6FDE03FC7A1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AF6E9E67D620E639E17F9B0A8B56EF /* Foundation.framework */; };
+		DA0293AE6D9BE5332D53A2BA21D1F62F /* HUPHAuthorizationNotDeterminedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 149BD5792D6D6DFDAC17CBBE1350360D /* HUPHAuthorizationNotDeterminedView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DC7BE47B07381BDACDEC95B3CC9E055F /* HUAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B37ED9130AD44A62EE3B7043F12063A /* HUAlbumCell.m */; };
+		DF403A43F60F22789CCF6B594408496B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02A1087A37D5FE3535EBFB6C0D5334B /* UIKit.framework */; };
+		E102770060DB31A85F2A3C6E59E6F72C /* HUPhotoPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CA1FA7245F87068FDDA8900325D0ECC3 /* HUPhotoPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1233B6958B8666FE45B7E803CFFB257 /* UIView+HUConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 9386A00AE73100EA641A7D9D80C22CDC /* UIView+HUConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E1AD9EA1CBEB79BEEA7D3038AFC03CCE /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26A7C6C07A9AA6DA68F130C37E06956 /* Photos.framework */; };
 		ECACC713548BB10CACB979A345C00021 /* Pods-HUPhotoPicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFBDEA343E11FF4754BDFEBD5518578 /* Pods-HUPhotoPicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD51C107ABD191586ED56BBBEB12D010 /* HUImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF351E858F5DDF7A23B002A48E189A7 /* HUImageGridCell.m */; };
+		FD03CAA45A836B85B056FD7EA04ED983 /* HUImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4353DF808B2733A4B02FDF0FCF202D9F /* HUImageGridCell.m */; };
+		FD7D728E706AEDBB861F0508E5994795 /* HUPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F91B3D79F384DEAC7E663C1C261B581 /* HUPhotoManager.m */; };
 		FDCB75F87F64869D33D02DBD4B7686E5 /* Pods-HUPhotoPicker_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03986A5DBF41F8023D1694B76C395D20 /* Pods-HUPhotoPicker_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2A6EC50CC372281189590CCFF32DCE32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9454A12298C8BC576AC8C9FADC8606AC;
+			remoteInfo = "HUPhotoPicker-HUPhotoPicker";
+		};
 		7DEE9D4736AA48EF23E063943CD5D9DD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 51D04370103E315D33B886075EA2FA5E;
+			remoteGlobalIDString = F1F8491027077D16B57B3C1A0EF3AA1C;
 			remoteInfo = HUPhotoPicker;
-		};
-		A0C31593C17DA4841CE8B712A90433D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 246BFB603C0BCC677585B18B348918D2;
-			remoteInfo = "HUPhotoPicker-HUPhotoPicker";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		014EBF96D5C5FCD16396FBF832EA3A30 /* HUImageGridCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImageGridCell.h; sourceTree = "<group>"; };
 		03986A5DBF41F8023D1694B76C395D20 /* Pods-HUPhotoPicker_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HUPhotoPicker_Tests-umbrella.h"; sourceTree = "<group>"; };
 		0522A16304B8605BD90F50ACA0E138D9 /* Pods-HUPhotoPicker_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoPicker_Example-resources.sh"; sourceTree = "<group>"; };
-		0704F425B99EBF39CFB00D9507DDA49E /* Pods_HUPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUPhotoPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0704F425B99EBF39CFB00D9507DDA49E /* Pods_HUPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HUPhotoPicker_Example.framework; path = "Pods-HUPhotoPicker_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E455D8AC456DDBFAB93C50CB71F30C /* image_selected@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "image_selected@2x.png"; sourceTree = "<group>"; };
 		0F64E676A7310A2305EDB7FBCE9F72B8 /* HUPhotoPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HUPhotoPicker-dummy.m"; sourceTree = "<group>"; };
 		1224EE29502CEE6118992FC049E206AD /* Jurisdiction_icon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "Jurisdiction_icon@2x.png"; sourceTree = "<group>"; };
 		130C481FF1ED72C0778B97BDCD0F17C8 /* Pods-HUPhotoPicker_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoPicker_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		145575F5BA2F47656186F7F6EDEE5C14 /* Pods-HUPhotoPicker_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoPicker_Tests-resources.sh"; sourceTree = "<group>"; };
+		149BD5792D6D6DFDAC17CBBE1350360D /* HUPHAuthorizationNotDeterminedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPHAuthorizationNotDeterminedView.h; sourceTree = "<group>"; };
 		1C640FE2C16EB0F5AF97ED7F0F2E36D1 /* nav_back@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "nav_back@3x.png"; sourceTree = "<group>"; };
-		1D458E2E8AFB771A144A2F444EDA2A81 /* Asset.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
-		24C3A74166A6AE40205D891F7ED0ECF1 /* HUPHAuthorizationNotDeterminedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPHAuthorizationNotDeterminedView.h; sourceTree = "<group>"; };
+		23B0C3ECB54DC2EE99FB80E75AE12548 /* HUPHAuthorizationNotDeterminedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPHAuthorizationNotDeterminedViewController.h; sourceTree = "<group>"; };
+		2BEDA5A410CA4E9828D668530403EC02 /* UIBarButtonItem+HUButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+HUButton.h"; sourceTree = "<group>"; };
+		2C379D7FAAD22956858554B429BDA35C /* HUPHAuthorizationNotDeterminedViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUPHAuthorizationNotDeterminedViewController.m; sourceTree = "<group>"; };
 		2F89751B7BF19ECFBEE63F90F6921B83 /* Pods-HUPhotoPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
-		32C9A355F328C1E947597FF93C5A7C55 /* Pods-HUPhotoPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-HUPhotoPicker_Tests.modulemap"; sourceTree = "<group>"; };
-		38A14C090887B7C319908B93D05E67F0 /* Pods-HUPhotoPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-HUPhotoPicker_Example.modulemap"; sourceTree = "<group>"; };
-		40D1BC4CA36A1621154C9A0385E0CEAA /* HUImagePickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerViewController.m; sourceTree = "<group>"; };
+		32C9A355F328C1E947597FF93C5A7C55 /* Pods-HUPhotoPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HUPhotoPicker_Tests.modulemap"; sourceTree = "<group>"; };
+		38A14C090887B7C319908B93D05E67F0 /* Pods-HUPhotoPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HUPhotoPicker_Example.modulemap"; sourceTree = "<group>"; };
 		41102FD4F94FB1E15B301805299A9398 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41C5681EAA54DCD76085886663643266 /* HUPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HUPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41C5681EAA54DCD76085886663643266 /* HUPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HUPhotoPicker.framework; path = HUPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42026A93EEAC366384BD913B6716E854 /* HUImageSelectModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImageSelectModel.m; sourceTree = "<group>"; };
+		4353DF808B2733A4B02FDF0FCF202D9F /* HUImageGridCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImageGridCell.m; sourceTree = "<group>"; };
 		440F7EB2EE1EBE1232B86327D31CB913 /* image_selected@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "image_selected@3x.png"; sourceTree = "<group>"; };
-		4DC2DAB95B2EA57527A61DDF3757CAA5 /* HUImageGridCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImageGridCell.h; sourceTree = "<group>"; };
+		472484183BCA967BB5D6C2ECC75B1AD2 /* NSBundle+HUPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+HUPicker.m"; sourceTree = "<group>"; };
+		4B37ED9130AD44A62EE3B7043F12063A /* HUAlbumCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUAlbumCell.m; sourceTree = "<group>"; };
 		4E032161C1C044C109EC0D31C96517E8 /* Pods-HUPhotoPicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HUPhotoPicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		51FC7E9D1F2C7CED00CA06F6 /* HUPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoManager.h; sourceTree = "<group>"; };
-		51FC7E9E1F2C7CED00CA06F6 /* HUPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoManager.m; sourceTree = "<group>"; };
-		5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HUPhotoPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E653E5FE90DAD58221CEB20BCF8B001 /* HUAlbumTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUAlbumTableViewController.h; sourceTree = "<group>"; };
+		5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HUPhotoPicker.bundle; path = HUPhotoPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3C98F3061D0E8699928B32C277F0D6 /* Pods-HUPhotoPicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoPicker_Example-frameworks.sh"; sourceTree = "<group>"; };
-		65CE386BBE49D7A55EED3B81A1DE4CB4 /* HUImageGridViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImageGridViewController.m; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6557FE4AA5AACF0190DEBD22A05C3030 /* HUAlbumTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUAlbumTableViewController.m; sourceTree = "<group>"; };
 		6CFC57A8BCC675F60EA41FD6DDC77F21 /* ResourceBundle-HUPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HUPhotoPicker-Info.plist"; sourceTree = "<group>"; };
-		6D52549E79C12B552C6F411D52E7A544 /* HUPHAuthorizationNotDeterminedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPHAuthorizationNotDeterminedViewController.h; sourceTree = "<group>"; };
-		6DC3C0DC55FFD6D2B584AA04410FAECA /* HUImageSelectModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImageSelectModel.m; sourceTree = "<group>"; };
-		807F1B551D2148328AF437008B1879CB /* HUImageGridViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImageGridViewController.h; sourceTree = "<group>"; };
-		80E8EB8B8C0C057387305214A45DED37 /* UIView+HUConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUConstraint.m"; sourceTree = "<group>"; };
-		8BF351E858F5DDF7A23B002A48E189A7 /* HUImageGridCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImageGridCell.m; sourceTree = "<group>"; };
+		70F74A4F43A0ABF8A0E541644C0C7A22 /* HUPhotoPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPhotoPicker.h; sourceTree = "<group>"; };
+		71FBFF485D059F421A11C6C16F445521 /* Asset.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
+		77AB530FFB268A02B8EC0AECF8C2A8C5 /* UIBarButtonItem+HUButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+HUButton.m"; sourceTree = "<group>"; };
+		7B87E66FFDFC65BE5DAD0EB90F2CB216 /* HUPHAuthorizationNotDeterminedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUPHAuthorizationNotDeterminedView.m; sourceTree = "<group>"; };
 		8E03B90A175383EA579F5C9B85FA195E /* zp_icon_select_no@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "zp_icon_select_no@2x.png"; sourceTree = "<group>"; };
+		8F91B3D79F384DEAC7E663C1C261B581 /* HUPhotoManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUPhotoManager.m; sourceTree = "<group>"; };
+		91C6BFC62DDF8589B2B334527787FC12 /* UIView+HUConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUConstraint.m"; sourceTree = "<group>"; };
+		935F2A0E76BBB909354AE29C3330E627 /* HUImageGridViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImageGridViewController.m; sourceTree = "<group>"; };
+		9386A00AE73100EA641A7D9D80C22CDC /* UIView+HUConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+HUConstraint.h"; sourceTree = "<group>"; };
 		938CF7C91F3D8ED69933F0E1D2EEA0A0 /* Pods-HUPhotoPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95AF6E9E67D620E639E17F9B0A8B56EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HUPhotoPicker.xcconfig; sourceTree = "<group>"; };
-		993F04E4EF82FB779535124E25224AC1 /* UIView+HUConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+HUConstraint.h"; sourceTree = "<group>"; };
-		9A6EAC39A29174731A35EEE6498482EC /* NSBundle+HUPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSBundle+HUPicker.h"; sourceTree = "<group>"; };
-		A030ABAA15826A891D87DB54785EF3BD /* UIBarButtonItem+HUButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+HUButton.h"; sourceTree = "<group>"; };
+		9B73BB3567324F754B755437196A43EA /* HUImagePickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImagePickerViewController.h; sourceTree = "<group>"; };
+		A02A1087A37D5FE3535EBFB6C0D5334B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A0D12AD3935463129FF3404181117FCC /* nav_back@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
-		B14CC405D84FEFAE93734CBE03ECEB76 /* NSBundle+HUPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+HUPicker.m"; sourceTree = "<group>"; };
-		B24706CD2CA65DD8541DA4B3620F09DB /* HUAlbumTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUAlbumTableViewController.m; sourceTree = "<group>"; };
+		A2A031D7760BA93C093137D426806995 /* HUAlbumCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUAlbumCell.h; sourceTree = "<group>"; };
+		AC0E450E03AE0BD8C07132654C392ED5 /* HUImageGridViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImageGridViewController.h; sourceTree = "<group>"; };
 		B2CC892863FD823D6F4582A31FAF631B /* Pods-HUPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C352788E0CB8BE9C47A629991C7FC5BE /* HUAlbumTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUAlbumTableViewController.h; sourceTree = "<group>"; };
+		BAE8756CE9521297A9057A5A2FD77F64 /* HUImageSelectModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImageSelectModel.h; sourceTree = "<group>"; };
+		BDCA09C79AEE10A1ED09A55F53D81F5B /* HUPhotoManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPhotoManager.h; sourceTree = "<group>"; };
 		C47BD88980D7ED118903ADB99CDD088A /* Pods-HUPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8BA1BE88BBF17A2A105043910EEFB73 /* Pods-HUPhotoPicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HUPhotoPicker_Tests-dummy.m"; sourceTree = "<group>"; };
 		CA1FA7245F87068FDDA8900325D0ECC3 /* HUPhotoPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HUPhotoPicker-umbrella.h"; sourceTree = "<group>"; };
 		CA30C93C134F5748536B5DA4BA4AB1AE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF1E218771EBB138BDF650B8B400DF0 /* HUImageSelectModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImageSelectModel.h; sourceTree = "<group>"; };
-		D0C7E4A5EA5E36EDACDB1DE576B54BF9 /* HUPHAuthorizationNotDeterminedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUPHAuthorizationNotDeterminedView.m; sourceTree = "<group>"; };
 		D16E26392E970F2C0EC9A533327F35A7 /* HUAlbumCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = HUAlbumCell.xib; sourceTree = "<group>"; };
+		D26A7C6C07A9AA6DA68F130C37E06956 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
 		DB4814A825000D6ED8CD7C63108D3E87 /* Jurisdiction_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "Jurisdiction_icon@3x.png"; sourceTree = "<group>"; };
-		DC69643AF1C60EA06BE1120AC7B7B7BC /* HUPHAuthorizationNotDeterminedViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUPHAuthorizationNotDeterminedViewController.m; sourceTree = "<group>"; };
 		DCBC1131000D1841E9CA3201EA6435F0 /* Pods-HUPhotoPicker_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HUPhotoPicker_Example-dummy.m"; sourceTree = "<group>"; };
-		DCDA1E6D64484A1D26B3D3739CB06D0C /* HUImagePickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUImagePickerViewController.h; sourceTree = "<group>"; };
-		DD76487440D7EB9ECC6E80F776B56B13 /* HUPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = HUPhotoPicker.modulemap; sourceTree = "<group>"; };
-		DED5780C57BF06526D7F7E43E7018FB5 /* HUPhotoPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUPhotoPicker.h; sourceTree = "<group>"; };
-		E5B78360D997AA508DE3414B04E19B15 /* UIBarButtonItem+HUButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+HUButton.m"; sourceTree = "<group>"; };
-		E83EFD674600B551A14583AC23069845 /* HUAlbumCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUAlbumCell.m; sourceTree = "<group>"; };
+		DD76487440D7EB9ECC6E80F776B56B13 /* HUPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = HUPhotoPicker.modulemap; sourceTree = "<group>"; };
 		E84BCC5D0F1545E81EBE7C856270FCFA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFBDEA343E11FF4754BDFEBD5518578 /* Pods-HUPhotoPicker_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HUPhotoPicker_Example-umbrella.h"; sourceTree = "<group>"; };
 		F1EE24BE56A1924E9D826233754AE7B0 /* zp_icon_select_no@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "zp_icon_select_no@3x.png"; sourceTree = "<group>"; };
 		F47CB219B767DE0DD7A467878BB142D8 /* Pods-HUPhotoPicker_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HUPhotoPicker_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F4B44762D8BC049932474B40AD2CD081 /* Pods-HUPhotoPicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HUPhotoPicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F4BF3A669F2F20B32D67DAD708761A05 /* Pods-HUPhotoPicker_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HUPhotoPicker_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		F66B3FAA451472AAEB2312FBCCA5AB92 /* HUAlbumCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUAlbumCell.h; sourceTree = "<group>"; };
+		F99FF310986C192B7905433B287B17D9 /* NSBundle+HUPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSBundle+HUPicker.h"; sourceTree = "<group>"; };
 		FBF6987B6583CAAC0F713372C7A3F67A /* HUPhotoPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HUPhotoPicker-prefix.pch"; sourceTree = "<group>"; };
-		FC1915ACB0D51E790644A7DC040B6DFE /* Pods_HUPhotoPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUPhotoPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1915ACB0D51E790644A7DC040B6DFE /* Pods_HUPhotoPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HUPhotoPicker_Tests.framework; path = "Pods-HUPhotoPicker_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD39879E3F1216DBE938964C58B4D2ED /* HUImagePickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22C571B301F48889386633F5934D88C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDB0413473906828FD31A1B71F57DB72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,33 +170,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05112A3255DB96258472496B4C3E74B /* Frameworks */ = {
+		F9B04E9E30A9B673CB13CAD424E6CB2A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				632367502A0049688E6E10CDD9BB988B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBF74D117AFE56761554D809F7D4D8D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				AAC817BF654195CE0FF1DECDB6C9C50B /* Foundation.framework in Frameworks */,
+				E1AD9EA1CBEB79BEEA7D3038AFC03CCE /* Photos.framework in Frameworks */,
+				DF403A43F60F22789CCF6B594408496B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA3F5A4484B397B4ED6B7F86D1C6F4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		499D8A8498175525FE73DD00DD5F2B5A /* HUPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				B5C858AB379B8CD329DD1F356CC70D2B /* HUPhotoPicker */,
+				57D556DCF698527C93DD488A03965E13 /* HUPhotoPicker */,
 				5E4307B5DB5320E9C7C0CD4F4C6B6186 /* Resources */,
 				D0E458A02B1188881E6616373C2D79F6 /* Support Files */,
 			);
 			name = HUPhotoPicker;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		57D556DCF698527C93DD488A03965E13 /* HUPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E5C7539AA83DA7D1ACD4B476C232D364 /* Classes */,
+			);
+			name = HUPhotoPicker;
+			path = HUPhotoPicker;
 			sourceTree = "<group>";
 		};
 		5E4307B5DB5320E9C7C0CD4F4C6B6186 /* Resources */ = {
@@ -212,43 +235,20 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				FE2988C830E2BF595D670799821746A3 /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
 				7891F584AD5F82C4224BBE5071177885 /* Products */,
 				B960F6E4A1637EFAC348E326FA1B87C2 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		99AD964CD1041DA9F1A728CE06CEED4F /* Classes */ = {
+		9EFA3F5A4484B397B4ED6B7F86D1C6F4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				DED5780C57BF06526D7F7E43E7018FB5 /* HUPhotoPicker.h */,
-				1D458E2E8AFB771A144A2F444EDA2A81 /* Asset.h */,
-				F66B3FAA451472AAEB2312FBCCA5AB92 /* HUAlbumCell.h */,
-				E83EFD674600B551A14583AC23069845 /* HUAlbumCell.m */,
-				C352788E0CB8BE9C47A629991C7FC5BE /* HUAlbumTableViewController.h */,
-				B24706CD2CA65DD8541DA4B3620F09DB /* HUAlbumTableViewController.m */,
-				4DC2DAB95B2EA57527A61DDF3757CAA5 /* HUImageGridCell.h */,
-				8BF351E858F5DDF7A23B002A48E189A7 /* HUImageGridCell.m */,
-				807F1B551D2148328AF437008B1879CB /* HUImageGridViewController.h */,
-				65CE386BBE49D7A55EED3B81A1DE4CB4 /* HUImageGridViewController.m */,
-				DCDA1E6D64484A1D26B3D3739CB06D0C /* HUImagePickerViewController.h */,
-				40D1BC4CA36A1621154C9A0385E0CEAA /* HUImagePickerViewController.m */,
-				CEF1E218771EBB138BDF650B8B400DF0 /* HUImageSelectModel.h */,
-				6DC3C0DC55FFD6D2B584AA04410FAECA /* HUImageSelectModel.m */,
-				24C3A74166A6AE40205D891F7ED0ECF1 /* HUPHAuthorizationNotDeterminedView.h */,
-				D0C7E4A5EA5E36EDACDB1DE576B54BF9 /* HUPHAuthorizationNotDeterminedView.m */,
-				6D52549E79C12B552C6F411D52E7A544 /* HUPHAuthorizationNotDeterminedViewController.h */,
-				DC69643AF1C60EA06BE1120AC7B7B7BC /* HUPHAuthorizationNotDeterminedViewController.m */,
-				9A6EAC39A29174731A35EEE6498482EC /* NSBundle+HUPicker.h */,
-				B14CC405D84FEFAE93734CBE03ECEB76 /* NSBundle+HUPicker.m */,
-				A030ABAA15826A891D87DB54785EF3BD /* UIBarButtonItem+HUButton.h */,
-				E5B78360D997AA508DE3414B04E19B15 /* UIBarButtonItem+HUButton.m */,
-				993F04E4EF82FB779535124E25224AC1 /* UIView+HUConstraint.h */,
-				80E8EB8B8C0C057387305214A45DED37 /* UIView+HUConstraint.m */,
-				51FC7E9D1F2C7CED00CA06F6 /* HUPhotoManager.h */,
-				51FC7E9E1F2C7CED00CA06F6 /* HUPhotoManager.m */,
+				95AF6E9E67D620E639E17F9B0A8B56EF /* Foundation.framework */,
+				D26A7C6C07A9AA6DA68F130C37E06956 /* Photos.framework */,
+				A02A1087A37D5FE3535EBFB6C0D5334B /* UIKit.framework */,
 			);
-			path = Classes;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		A10E112F1C35FE59D8C9F990E50C3BFB /* HUPhotoPicker */ = {
@@ -256,14 +256,7 @@
 			children = (
 				BFD15F05BB422C380D32346494ADC37A /* Assets */,
 			);
-			path = HUPhotoPicker;
-			sourceTree = "<group>";
-		};
-		B5C858AB379B8CD329DD1F356CC70D2B /* HUPhotoPicker */ = {
-			isa = PBXGroup;
-			children = (
-				99AD964CD1041DA9F1A728CE06CEED4F /* Classes */,
-			);
+			name = HUPhotoPicker;
 			path = HUPhotoPicker;
 			sourceTree = "<group>";
 		};
@@ -274,14 +267,6 @@
 				C8CDC63A690CAF61561C65553DEBA695 /* Pods-HUPhotoPicker_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BD2C99EDB2788F70E5CD0BF91E8CEC51 /* Pods-HUPhotoPicker_Example */ = {
@@ -315,6 +300,7 @@
 				8E03B90A175383EA579F5C9B85FA195E /* zp_icon_select_no@2x.png */,
 				F1EE24BE56A1924E9D826233754AE7B0 /* zp_icon_select_no@3x.png */,
 			);
+			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -351,12 +337,38 @@
 			path = "Example/Pods/Target Support Files/HUPhotoPicker";
 			sourceTree = "<group>";
 		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+		E5C7539AA83DA7D1ACD4B476C232D364 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+				71FBFF485D059F421A11C6C16F445521 /* Asset.h */,
+				A2A031D7760BA93C093137D426806995 /* HUAlbumCell.h */,
+				4B37ED9130AD44A62EE3B7043F12063A /* HUAlbumCell.m */,
+				4E653E5FE90DAD58221CEB20BCF8B001 /* HUAlbumTableViewController.h */,
+				6557FE4AA5AACF0190DEBD22A05C3030 /* HUAlbumTableViewController.m */,
+				014EBF96D5C5FCD16396FBF832EA3A30 /* HUImageGridCell.h */,
+				4353DF808B2733A4B02FDF0FCF202D9F /* HUImageGridCell.m */,
+				AC0E450E03AE0BD8C07132654C392ED5 /* HUImageGridViewController.h */,
+				935F2A0E76BBB909354AE29C3330E627 /* HUImageGridViewController.m */,
+				9B73BB3567324F754B755437196A43EA /* HUImagePickerViewController.h */,
+				FD39879E3F1216DBE938964C58B4D2ED /* HUImagePickerViewController.m */,
+				BAE8756CE9521297A9057A5A2FD77F64 /* HUImageSelectModel.h */,
+				42026A93EEAC366384BD913B6716E854 /* HUImageSelectModel.m */,
+				149BD5792D6D6DFDAC17CBBE1350360D /* HUPHAuthorizationNotDeterminedView.h */,
+				7B87E66FFDFC65BE5DAD0EB90F2CB216 /* HUPHAuthorizationNotDeterminedView.m */,
+				23B0C3ECB54DC2EE99FB80E75AE12548 /* HUPHAuthorizationNotDeterminedViewController.h */,
+				2C379D7FAAD22956858554B429BDA35C /* HUPHAuthorizationNotDeterminedViewController.m */,
+				BDCA09C79AEE10A1ED09A55F53D81F5B /* HUPhotoManager.h */,
+				8F91B3D79F384DEAC7E663C1C261B581 /* HUPhotoManager.m */,
+				70F74A4F43A0ABF8A0E541644C0C7A22 /* HUPhotoPicker.h */,
+				F99FF310986C192B7905433B287B17D9 /* NSBundle+HUPicker.h */,
+				472484183BCA967BB5D6C2ECC75B1AD2 /* NSBundle+HUPicker.m */,
+				2BEDA5A410CA4E9828D668530403EC02 /* UIBarButtonItem+HUButton.h */,
+				77AB530FFB268A02B8EC0AECF8C2A8C5 /* UIBarButtonItem+HUButton.m */,
+				9386A00AE73100EA641A7D9D80C22CDC /* UIView+HUConstraint.h */,
+				91C6BFC62DDF8589B2B334527787FC12 /* UIView+HUConstraint.m */,
 			);
-			name = iOS;
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		FE2988C830E2BF595D670799821746A3 /* Development Pods */ = {
@@ -386,48 +398,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2A6DD70CFC50AE5B2EB48887BB3FEBE /* Headers */ = {
+		E4CBD24BB811E55461E090F495A436C4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E087AC8F4B288CC76387B228AC51554 /* Asset.h in Headers */,
-				3597CB115556733D7E4BF0A9A48E24FB /* HUAlbumCell.h in Headers */,
-				51FC7E9F1F2C7CED00CA06F6 /* HUPhotoManager.h in Headers */,
-				3862DD606FF34A0D84B8742338B7C760 /* HUAlbumTableViewController.h in Headers */,
-				D5964494818CEA2C909668A09B0BCDBE /* HUImageGridCell.h in Headers */,
-				73FC30CB9450421907885EF4F4F26F5D /* HUImageGridViewController.h in Headers */,
-				54FBBF70C7ABD04BEF21E311BBF9BCD8 /* HUImagePickerViewController.h in Headers */,
-				04BFA4027EDD2B5226348DA79A09F402 /* HUImageSelectModel.h in Headers */,
-				9365CA82C3B4DD3DC758F107184E3C73 /* HUPHAuthorizationNotDeterminedView.h in Headers */,
-				A27FFF7FC4A7EC39782091B78CC66300 /* HUPHAuthorizationNotDeterminedViewController.h in Headers */,
-				B7599CB57E229F54E6B6B65FE66A0944 /* HUPhotoPicker-umbrella.h in Headers */,
-				D3CE782680B3C959CED779DA5901AE92 /* HUPhotoPicker.h in Headers */,
-				A7DCBDE76D6FADEF5030384D083AC9CE /* NSBundle+HUPicker.h in Headers */,
-				B691E326E77FF376A8AF4FFDAC048172 /* UIBarButtonItem+HUButton.h in Headers */,
-				60BAC72C811EE4529B74E3C0DBCDBCFA /* UIView+HUConstraint.h in Headers */,
+				9F0669E2B9B4DE39CFA20AD3DD4D7C87 /* Asset.h in Headers */,
+				60349CD90AEB6776ED0D431CBBC437FE /* HUAlbumCell.h in Headers */,
+				BC7B257A4305FDDC58C75B73B042F6A5 /* HUAlbumTableViewController.h in Headers */,
+				3AD94F79A4213F14B9E70F54CC9CD3E7 /* HUImageGridCell.h in Headers */,
+				4D582799A7AB605D5F3F8DDCB63247BD /* HUImageGridViewController.h in Headers */,
+				46A0071B856529479D57F9614A20CD44 /* HUImagePickerViewController.h in Headers */,
+				07B9A9F2A7056AB741A177F09B78489F /* HUImageSelectModel.h in Headers */,
+				DA0293AE6D9BE5332D53A2BA21D1F62F /* HUPHAuthorizationNotDeterminedView.h in Headers */,
+				90EB91E2C7AC4FF9E1D4E8279AA84BD4 /* HUPHAuthorizationNotDeterminedViewController.h in Headers */,
+				52EDD40236EB5C0752AD43B8A22AA209 /* HUPhotoManager.h in Headers */,
+				E102770060DB31A85F2A3C6E59E6F72C /* HUPhotoPicker-umbrella.h in Headers */,
+				CADC1D20456A676B00E1224A3EF9D832 /* HUPhotoPicker.h in Headers */,
+				1F7A86ACE9461FE7E338C93C44127241 /* NSBundle+HUPicker.h in Headers */,
+				8F4D08F306CF77EDAD9631A777FD6085 /* UIBarButtonItem+HUButton.h in Headers */,
+				E1233B6958B8666FE45B7E803CFFB257 /* UIView+HUConstraint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		246BFB603C0BCC677585B18B348918D2 /* HUPhotoPicker-HUPhotoPicker */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84415DFE5171BD252879263E3BCA45C2 /* Build configuration list for PBXNativeTarget "HUPhotoPicker-HUPhotoPicker" */;
-			buildPhases = (
-				AB8AD411E6E958F41FAA765F9C0E5127 /* Sources */,
-				FBF74D117AFE56761554D809F7D4D8D8 /* Frameworks */,
-				F45ECF41A25E4F97C1BC649DB79C193D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "HUPhotoPicker-HUPhotoPicker";
-			productName = "HUPhotoPicker-HUPhotoPicker";
-			productReference = 5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		497B76166E547334A2605D3F2187EF4D /* Pods-HUPhotoPicker_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33D742F05E95AD94A64F6A5ABABCEFA6 /* Build configuration list for PBXNativeTarget "Pods-HUPhotoPicker_Tests" */;
@@ -443,25 +438,6 @@
 			name = "Pods-HUPhotoPicker_Tests";
 			productName = "Pods-HUPhotoPicker_Tests";
 			productReference = FC1915ACB0D51E790644A7DC040B6DFE /* Pods_HUPhotoPicker_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		51D04370103E315D33B886075EA2FA5E /* HUPhotoPicker */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8D509E80A729A34BB14FB788801A4633 /* Build configuration list for PBXNativeTarget "HUPhotoPicker" */;
-			buildPhases = (
-				D21E775806827F7AB3BEE48E4AE906C6 /* Sources */,
-				D05112A3255DB96258472496B4C3E74B /* Frameworks */,
-				64AA7C1875673769EF711E87AA845868 /* Resources */,
-				A2A6DD70CFC50AE5B2EB48887BB3FEBE /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5C6952DAFEE646DB7B19B7BAEA5A37E0 /* PBXTargetDependency */,
-			);
-			name = HUPhotoPicker;
-			productName = HUPhotoPicker;
-			productReference = 41C5681EAA54DCD76085886663643266 /* HUPhotoPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		862C02ACDA795621761D507F96E861A0 /* Pods-HUPhotoPicker_Example */ = {
@@ -480,6 +456,42 @@
 			name = "Pods-HUPhotoPicker_Example";
 			productName = "Pods-HUPhotoPicker_Example";
 			productReference = 0704F425B99EBF39CFB00D9507DDA49E /* Pods_HUPhotoPicker_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9454A12298C8BC576AC8C9FADC8606AC /* HUPhotoPicker-HUPhotoPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7940B808114B37D7DD2A763C207A5521 /* Build configuration list for PBXNativeTarget "HUPhotoPicker-HUPhotoPicker" */;
+			buildPhases = (
+				EBD22AA14E2F9DB0CC7604E70B32BBD0 /* Sources */,
+				22C571B301F48889386633F5934D88C2 /* Frameworks */,
+				29153ED8550004B574EA849EE1812B47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HUPhotoPicker-HUPhotoPicker";
+			productName = "HUPhotoPicker-HUPhotoPicker";
+			productReference = 5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		F1F8491027077D16B57B3C1A0EF3AA1C /* HUPhotoPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B623E7F3214E92F93B441F7EB7411C9D /* Build configuration list for PBXNativeTarget "HUPhotoPicker" */;
+			buildPhases = (
+				18EDEA7CFCD6E18EC9F1B1FB09ED9853 /* Sources */,
+				F9B04E9E30A9B673CB13CAD424E6CB2A /* Frameworks */,
+				E72C1BE1088A7D614736A1AB00E8063D /* Resources */,
+				E4CBD24BB811E55461E090F495A436C4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72821BF8FDFD43562FBFB2F7656BEFAF /* PBXTargetDependency */,
+			);
+			name = HUPhotoPicker;
+			productName = HUPhotoPicker;
+			productReference = 41C5681EAA54DCD76085886663643266 /* HUPhotoPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -503,8 +515,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				51D04370103E315D33B886075EA2FA5E /* HUPhotoPicker */,
-				246BFB603C0BCC677585B18B348918D2 /* HUPhotoPicker-HUPhotoPicker */,
+				F1F8491027077D16B57B3C1A0EF3AA1C /* HUPhotoPicker */,
+				9454A12298C8BC576AC8C9FADC8606AC /* HUPhotoPicker-HUPhotoPicker */,
 				862C02ACDA795621761D507F96E861A0 /* Pods-HUPhotoPicker_Example */,
 				497B76166E547334A2605D3F2187EF4D /* Pods-HUPhotoPicker_Tests */,
 			);
@@ -512,27 +524,27 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		64AA7C1875673769EF711E87AA845868 /* Resources */ = {
+		29153ED8550004B574EA849EE1812B47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B379F2A7DCE58CBF501F4C5DFEEF486 /* HUPhotoPicker.bundle in Resources */,
+				B7806714DBB5CEA80EDB4430F17970D4 /* HUAlbumCell.xib in Resources */,
+				892AD6FECC7C202D0FAFF30E2B8B23CB /* image_selected@2x.png in Resources */,
+				74A814BABEC0F9ADA500A89DE82A6BD8 /* image_selected@3x.png in Resources */,
+				CCCCC3363864520F93678BFB593C753D /* Jurisdiction_icon@2x.png in Resources */,
+				7B3158B6C7322D922F1A23BEC78FCDAB /* Jurisdiction_icon@3x.png in Resources */,
+				270DFB73C1AA1AE1C8F969AFEF25B987 /* nav_back@2x.png in Resources */,
+				186C413F3337B0F8271C4AC65C36DA4B /* nav_back@3x.png in Resources */,
+				1142BE8EDAC4AFB2FB6E3A0A0773D015 /* zp_icon_select_no@2x.png in Resources */,
+				31641EF610029D35F045E49648CEEE07 /* zp_icon_select_no@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F45ECF41A25E4F97C1BC649DB79C193D /* Resources */ = {
+		E72C1BE1088A7D614736A1AB00E8063D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				999997221E71EC8C5940261573CADE75 /* HUAlbumCell.xib in Resources */,
-				0C5004C933EFF1D8BF7F97B89632CF6B /* image_selected@2x.png in Resources */,
-				D734B02207FD6CFCF54E74C59FAC858E /* image_selected@3x.png in Resources */,
-				7E9EB203226F8999E920F72CABFAFC69 /* Jurisdiction_icon@2x.png in Resources */,
-				570623447A6EAD3EFA21CA2C59BE0C41 /* Jurisdiction_icon@3x.png in Resources */,
-				B74AE9FF2F99B8A4D9E9EF3C525BDC80 /* nav_back@2x.png in Resources */,
-				90C949496B02D9DC7A206325760F095B /* nav_back@3x.png in Resources */,
-				DBC2C2EFD8A2089F73F1E310D09D2F03 /* zp_icon_select_no@2x.png in Resources */,
-				DA4B575632C8988A81F76BD1AA397746 /* zp_icon_select_no@3x.png in Resources */,
+				83EBC97EC7E3E5E31A32A10C1D5481BF /* HUPhotoPicker.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,10 +559,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB8AD411E6E958F41FAA765F9C0E5127 /* Sources */ = {
+		18EDEA7CFCD6E18EC9F1B1FB09ED9853 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7BE47B07381BDACDEC95B3CC9E055F /* HUAlbumCell.m in Sources */,
+				A56A1661A38E346E0210AF88D445CC29 /* HUAlbumTableViewController.m in Sources */,
+				FD03CAA45A836B85B056FD7EA04ED983 /* HUImageGridCell.m in Sources */,
+				1F99D498A7F8B060C0BFDAD2B16E65CD /* HUImageGridViewController.m in Sources */,
+				4927636BF8CC25980DB6E6601B47DBC6 /* HUImagePickerViewController.m in Sources */,
+				40CFF6938F28E71A623FF8E4B9C82A19 /* HUImageSelectModel.m in Sources */,
+				9F7F161A948613D6438471305C91330A /* HUPHAuthorizationNotDeterminedView.m in Sources */,
+				A5435913A184B8E914D6AB527D7DFBEB /* HUPHAuthorizationNotDeterminedViewController.m in Sources */,
+				FD7D728E706AEDBB861F0508E5994795 /* HUPhotoManager.m in Sources */,
+				991259686C53B8382762B6C0526AA255 /* HUPhotoPicker-dummy.m in Sources */,
+				32FDA717C871E5DE2DA49B6090A3296D /* NSBundle+HUPicker.m in Sources */,
+				701C4B6C447CA31D597581D592A22191 /* UIBarButtonItem+HUButton.m in Sources */,
+				C026B5A9FB4CA8BBD6C7E2047845AB8D /* UIView+HUConstraint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,45 +587,265 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D21E775806827F7AB3BEE48E4AE906C6 /* Sources */ = {
+		EBD22AA14E2F9DB0CC7604E70B32BBD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F82728620BC5DDD466A4ABF7547147C /* HUAlbumCell.m in Sources */,
-				51FC7EA01F2C7CED00CA06F6 /* HUPhotoManager.m in Sources */,
-				5990587D9EBE0685E24D3B21CFFBCFBC /* HUAlbumTableViewController.m in Sources */,
-				FD51C107ABD191586ED56BBBEB12D010 /* HUImageGridCell.m in Sources */,
-				EC48029712838096B76DA36D7CF59735 /* HUImageGridViewController.m in Sources */,
-				BFBDE3E8B50654B94567D71F1BB8BB6B /* HUImagePickerViewController.m in Sources */,
-				3F50A337AE80430FEC02A39743AF75CD /* HUImageSelectModel.m in Sources */,
-				4018A75AAA052068D08EFDD085829B33 /* HUPHAuthorizationNotDeterminedView.m in Sources */,
-				A39A6A80C87F4383643FB7A04BE9B68C /* HUPHAuthorizationNotDeterminedViewController.m in Sources */,
-				8CE1C881555E43195E95461F46532C5B /* HUPhotoPicker-dummy.m in Sources */,
-				496B6D85290CC6D1AD05A995C83BCFD3 /* NSBundle+HUPicker.m in Sources */,
-				E6CF3CDFD0DE883D529D206B414C49ED /* UIBarButtonItem+HUButton.m in Sources */,
-				7AB586FCFCCC35E308CA80385FC812F5 /* UIView+HUConstraint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C6952DAFEE646DB7B19B7BAEA5A37E0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "HUPhotoPicker-HUPhotoPicker";
-			target = 246BFB603C0BCC677585B18B348918D2 /* HUPhotoPicker-HUPhotoPicker */;
-			targetProxy = A0C31593C17DA4841CE8B712A90433D4 /* PBXContainerItemProxy */;
-		};
 		66C2B4BBBC0D45C746840F175CC63427 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HUPhotoPicker;
-			target = 51D04370103E315D33B886075EA2FA5E /* HUPhotoPicker */;
+			target = F1F8491027077D16B57B3C1A0EF3AA1C /* HUPhotoPicker */;
 			targetProxy = 7DEE9D4736AA48EF23E063943CD5D9DD /* PBXContainerItemProxy */;
+		};
+		72821BF8FDFD43562FBFB2F7656BEFAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "HUPhotoPicker-HUPhotoPicker";
+			target = 9454A12298C8BC576AC8C9FADC8606AC /* HUPhotoPicker-HUPhotoPicker */;
+			targetProxy = 2A6EC50CC372281189590CCFF32DCE32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		345CC476DF4A7516DBD2220CF5035FF3 /* Debug */ = {
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E99DEF6085E2FC0A5468CDEF3A73563 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HUPhotoPicker/HUPhotoPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HUPhotoPicker/HUPhotoPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = HUPhotoPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		68C6F643AB693EB092745C43DA10405B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HUPhotoPicker/HUPhotoPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HUPhotoPicker/HUPhotoPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = HUPhotoPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F25A380759C522E928B8E4DA8AA695E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C47BD88980D7ED118903ADB99CDD088A /* Pods-HUPhotoPicker_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Pods-HUPhotoPicker_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HUPhotoPicker_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		94641B45D6180F8AB84D2E4ACE46336F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 938CF7C91F3D8ED69933F0E1D2EEA0A0 /* Pods-HUPhotoPicker_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Pods-HUPhotoPicker_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HUPhotoPicker_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9CFBF62120894519D3BC5DBE6B165D52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HUPhotoPicker";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/ResourceBundle-HUPhotoPicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = HUPhotoPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B470D38A7203A6F06A7D420666AD79F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2CC892863FD823D6F4582A31FAF631B /* Pods-HUPhotoPicker_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Example/Pods-HUPhotoPicker_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HUPhotoPicker_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -640,7 +885,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -648,77 +893,7 @@
 			};
 			name = Debug;
 		};
-		47745DD5510441986F3C5025990E3627 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2CC892863FD823D6F4582A31FAF631B /* Pods-HUPhotoPicker_Example.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Example/Pods-HUPhotoPicker_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HUPhotoPicker_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		53D04790A12400352133C03C0EB9126C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HUPhotoPicker";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/ResourceBundle-HUPhotoPicker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = HUPhotoPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		56482E5318E841E1E9872233FB4E0762 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HUPhotoPicker";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/ResourceBundle-HUPhotoPicker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = HUPhotoPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		685DBB4CC2B338F1D643175BD72A2E14 /* Release */ = {
+		D705037042E023DAFA839710026132EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F89751B7BF19ECFBEE63F90F6921B83 /* Pods-HUPhotoPicker_Example.release.xcconfig */;
 			buildSettings = {
@@ -736,7 +911,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Example/Pods-HUPhotoPicker_Example.modulemap";
@@ -754,183 +929,20 @@
 			};
 			name = Release;
 		};
-		6968DF039025AC6BE109D08603ED9B30 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 938CF7C91F3D8ED69933F0E1D2EEA0A0 /* Pods-HUPhotoPicker_Tests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Pods-HUPhotoPicker_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HUPhotoPicker_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		717E77604BFBB04BEAF56608A1CB2EDE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D43BA43AFF00DC990E9933CC89BFCFD5 /* Release */ = {
+		D84F36E6AC6CA9E25CD5F9A207A16CE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HUPhotoPicker";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HUPhotoPicker/HUPhotoPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/ResourceBundle-HUPhotoPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HUPhotoPicker/HUPhotoPicker.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = HUPhotoPicker;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D5F565EF48CEDCCA13CF21A1136B4882 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C47BD88980D7ED118903ADB99CDD088A /* Pods-HUPhotoPicker_Tests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HUPhotoPicker_Tests/Pods-HUPhotoPicker_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HUPhotoPicker_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		DB27D271E54BD06852DAF65AC3125B5B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98DC0E930886B558EE9FFCBB28EBA6E6 /* HUPhotoPicker.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HUPhotoPicker/HUPhotoPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HUPhotoPicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HUPhotoPicker/HUPhotoPicker.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = HUPhotoPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -940,8 +952,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				345CC476DF4A7516DBD2220CF5035FF3 /* Debug */,
-				717E77604BFBB04BEAF56608A1CB2EDE /* Release */,
+				C104F7F091290C3D1E248192F07FE689 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -949,26 +961,17 @@
 		33D742F05E95AD94A64F6A5ABABCEFA6 /* Build configuration list for PBXNativeTarget "Pods-HUPhotoPicker_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5F565EF48CEDCCA13CF21A1136B4882 /* Debug */,
-				6968DF039025AC6BE109D08603ED9B30 /* Release */,
+				8F25A380759C522E928B8E4DA8AA695E /* Debug */,
+				94641B45D6180F8AB84D2E4ACE46336F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84415DFE5171BD252879263E3BCA45C2 /* Build configuration list for PBXNativeTarget "HUPhotoPicker-HUPhotoPicker" */ = {
+		7940B808114B37D7DD2A763C207A5521 /* Build configuration list for PBXNativeTarget "HUPhotoPicker-HUPhotoPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				56482E5318E841E1E9872233FB4E0762 /* Debug */,
-				53D04790A12400352133C03C0EB9126C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8D509E80A729A34BB14FB788801A4633 /* Build configuration list for PBXNativeTarget "HUPhotoPicker" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB27D271E54BD06852DAF65AC3125B5B /* Debug */,
-				D43BA43AFF00DC990E9933CC89BFCFD5 /* Release */,
+				D84F36E6AC6CA9E25CD5F9A207A16CE6 /* Debug */,
+				9CFBF62120894519D3BC5DBE6B165D52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -976,8 +979,17 @@
 		AB6763DF45ED9EC7A337352CBCD119B2 /* Build configuration list for PBXNativeTarget "Pods-HUPhotoPicker_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				47745DD5510441986F3C5025990E3627 /* Debug */,
-				685DBB4CC2B338F1D643175BD72A2E14 /* Release */,
+				B470D38A7203A6F06A7D420666AD79F7 /* Debug */,
+				D705037042E023DAFA839710026132EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B623E7F3214E92F93B441F7EB7411C9D /* Build configuration list for PBXNativeTarget "HUPhotoPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E99DEF6085E2FC0A5468CDEF3A73563 /* Debug */,
+				68C6F643AB693EB092745C43DA10405B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

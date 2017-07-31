@@ -9,6 +9,7 @@
 #import "HUPhotoManager.h"
 #import <Photos/Photos.h>
 
+
 @interface HUPhotoManager()
 
 @property (nonatomic, copy) NSMutableDictionary<NSString *, UIImage *> *imageCache;
@@ -134,7 +135,7 @@
         }
     
         BOOL downloadFinined = ![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue];
-        BOOL isInCloudKey = [info objectForKey:PHImageResultIsInCloudKey];
+        BOOL isInCloudKey = [[info objectForKey:PHImageResultIsInCloudKey] boolValue];
         // 从iCloud下载图片
         if (result && downloadFinined) {
             NSLog(@"图片下载成功");

@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
     'HUPhotoPicker' => ['HUPhotoPicker/Assets/*.{xib,png}']
   }
 
-  s.public_header_files = 'Pod/Classes/**/HUPhotoPicker.h'
-  s.frameworks = 'UIKit', 'Photo'
+  s.public_header_files = 'HUPhotoPicker/Classes/**/{HUPhotoPicker,HUPhotoManager,HUImagePickerViewController}.h'
+  s.frameworks = 'UIKit', 'Photos'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
