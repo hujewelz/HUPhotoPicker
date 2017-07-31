@@ -10,7 +10,7 @@
 //#import <HUPhotoPicker/HUPhotoPicker-umbrella.h>
 #import <HUPhotoPicker/HUPhotoPicker.h>
 
-@interface HUViewController ()
+@interface HUViewController () <HUImagePickerViewControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -25,8 +25,13 @@
 - (IBAction)pickImage:(id)sender {
     
     HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+    picker.delegate = self;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+- (void)imagePickerViewController:(HUImagePickerViewController *)imagePickerViewController didFinishPickingImageWithImages:(NSArray<UIImage *> *)images assets:(NSArray<PHAsset *> *)assets {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

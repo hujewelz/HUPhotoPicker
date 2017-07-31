@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UIButton *checkButton;
 
+
 @end
 @implementation HUImageGridCell
 
@@ -40,6 +41,12 @@
     }
 }
 
+- (void)setIsDegraded:(BOOL)isDegraded {
+    _isDegraded = isDegraded;
+    self.degradedButton.hidden = !isDegraded;
+//    NSLog(@"is degraded: %zd", isDegraded);
+}
+
 - (void)setupView {
     [self.contentView addSubview:self.thumbnail];
     
@@ -51,12 +58,10 @@
     [self.contentView addConstraintsWithVisualFormat:@"V:|-2-[v0(==22)]" views:@[self.checkButton]];
     
     
-    
-//    [self.checkButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.checkButton.superview).offset(2);
-//        make.right.equalTo(self.checkButton.superview).offset(-2);
-//        make.width.height.mas_equalTo(22);
-//    }];
+    [self.contentView addSubview:self.degradedButton];
+    [self.contentView addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.degradedButton]];
+    [self.contentView addConstraintsWithVisualFormat:@"V:|[v0]|" views:@[self.degradedButton]];
+
 }
 
 - (UIImageView *)thumbnail {
@@ -72,8 +77,6 @@
 - (UIButton *)checkButton {
     if (_checkButton == nil) {
         _checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-            
         [_checkButton setBackgroundImage:UIImageMake(@"zp_icon_select_no") forState:UIControlStateNormal];
         [_checkButton setBackgroundImage:UIImageMake(@"image_selected") forState:UIControlStateSelected];
         [_checkButton setTitle:nil forState:UIControlStateNormal];
@@ -87,5 +90,14 @@
     return _checkButton;
 }
 
+- (UIButton *)degradedButton {
+    if (_degradedButton == nil) {
+        _degradedButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _degradedButton.adjustsImageWhenHighlighted = NO;
+        //_degradedButton.backgroundColor = [UIColor redColor];
+        _degradedButton.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+    }
+    return _degradedButton;
+}
 
 @end

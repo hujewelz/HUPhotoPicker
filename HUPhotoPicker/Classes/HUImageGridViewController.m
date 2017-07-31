@@ -14,6 +14,7 @@
 #import "Asset.h"
 #import "UIView+HUConstraint.m"
 #import "UIBarButtonItem+HUButton.h"
+#import "HUPhotoHelper.h"
 
 @interface HUImageGridViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UIGestureRecognizerDelegate>
 
@@ -107,9 +108,12 @@
     cell.representedAssetIdentifier = asset.localIdentifier;
     cell.model = self.selectModels[indexPath.item];
     [_cachingImageManager requestImageForAsset:asset targetSize:_targetSize contentMode:PHImageContentModeDefault options:_options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//        if (result && cell.representedAssetIdentifier == asset.localIdentifier) {
-        cell.thumbnail.image = result;
-//        }
+        BOOL isDegraded = [info[PHImageResultIsDegradedKey] boolValue];
+        
+        if (result && [cell.representedAssetIdentifier isEqualToString: asset.localIdentifier]) {
+            cell.thumbnail.image = result;
+            cell.isDegraded = isDegraded;
+        }
     }];
     return cell;
 }
@@ -221,67 +225,20 @@
 
 - (void)fetchPhotoWithAsset:(NSArray<PHAsset *> *)assets {
     
-    __block NSMutableArray *images = self.images;
-    
-//    [SVProgressHUD show];
-    __block BOOL isCompleted = false;
-    
-    for (NSInteger i=0; i<assets.count; i++) {
-        PHAsset *asset = assets[i];
-        PHImageRequestOptions *options = [PHImageRequestOptions new];
-        //[options setSynchronous:YES];
-        [options setNetworkAccessAllowed:YES];
-        options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
-        options.resizeMode = PHImageRequestOptionsResizeModeFast;
-        [options setProgressHandler: ^(double progress, NSError *__nullable error, BOOL *stop, NSDictionary *__nullable info) {
-            if (progress < 1) {
-//                [SVProgressHUD showInfoWithStatus:@"图片正在从iCloud同步中"];
-                isCompleted = false;
-                return ;
-            }
-        }];
+    [[HUPhotoHelper sharedInstance] fetchPhotosWithAssets:assets progress:nil completed:^(NSArray<UIImage *> * _Nonnull images) {
+        if (![self.navigationController isKindOfClass:[HUImagePickerViewController class]]) {
+            //                        [SVProgressHUD dismiss];
+            return;
+        }
         
-        CGFloat scale = [UIScreen mainScreen].scale;
-        CGSize targetSize = CGSizeMake(asset.pixelWidth * scale, asset.pixelHeight * scale);
-        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:targetSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            
-            NSLog(@"image: %@", result);
-//            NSLog(@"info: %@", info);
-            BOOL downloadFinined = ![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue];
-            
-            // 从iCloud下载图片
-            if (result && downloadFinined) {
-                NSLog(@"图片下载成功");
-//                if (i < images.count) {
-//                    [images replaceObjectAtIndex:i withObject:result];
-//                } else {
-                    [images addObject:result];
-                //}
-                
-                isCompleted = images.count >= assets.count;
-                if (isCompleted) {
-                    NSLog(@"-----------------------------------------");
-                    if (![self.navigationController isKindOfClass:[HUImagePickerViewController class]]) {
-//                        [SVProgressHUD dismiss];
-                        return;
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        [SVProgressHUD dismiss];
-                        HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
-                        if ([pickVc.delegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImages:assets:)]) {
-                            [pickVc.delegate imagePickerViewController:pickVc didFinishPickingImageWithImages:images assets:assets];
-                        }
-                    });
-                    return ;
-                }
-            }
-            
-        }];
+        NSLog(@"images: %@", images);
+        HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+        if ([pickVc.delegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImages:assets:)]) {
+            [pickVc.delegate imagePickerViewController:pickVc didFinishPickingImageWithImages:images assets:assets];
+        }
         
-        
-    }
-    
+    }];
+
 }
 
 - (void)back {

@@ -14,6 +14,9 @@
 + (NSString *)reuseIdentifier;
 
 @property (nonatomic, strong) UIImageView *thumbnail;
+@property (nonatomic, strong) UIButton *degradedButton;
+
+@property (nonatomic, assign) BOOL isDegraded;
 @property (nonatomic, copy) NSString *representedAssetIdentifier;
 
 @property (nonatomic, strong) HUImageSelectModel *model;
