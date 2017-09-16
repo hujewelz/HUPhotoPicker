@@ -13,17 +13,23 @@
 
 @optional
 
-- (void)imagePickerViewController:(HUImagePickerViewController *)imagePickerViewController
-  didFinishPickingImageWithImages:(NSArray<UIImage *> *)images assets:(NSArray<PHAsset *> *)assets;
+- (void)imagePickerViewController:(nonnull HUImagePickerViewController *)imagePickerViewController
+  didFinishPickingImageWithImages:(nonnull NSArray<UIImage *> *)images assets:(nullable NSArray<PHAsset *> *)assets;
 
-- (void)imagePickerViewControllerDidBeginUploadImage:(HUImagePickerViewController *)imagePickerViewController;
+- (void)imagePickerViewControllerDidBeginUploadImage:(nonnull HUImagePickerViewController *)imagePickerViewController;
 
 
 @end
 
 @interface HUImagePickerViewController : UINavigationController
 
-@property (nonatomic, weak) id <HUImagePickerViewControllerDelegate, UINavigationControllerDelegate> delegate;
+@property (nonatomic, weak, nullable) id <HUImagePickerViewControllerDelegate, UINavigationControllerDelegate> delegate;
+
 @property (nonatomic, assign) NSInteger maxCount;
+
+@property (nonatomic, assign) NSInteger numberOfColumns;
+
+/// 是否允许通过网络下载iCloud图片，默认为 NO
+@property (nonatomic, assign, getter=isNetworkAccessAllowed) BOOL networkAccessAllowed;
 
 @end

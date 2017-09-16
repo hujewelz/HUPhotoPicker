@@ -10,15 +10,22 @@
 #import "HUImageGridViewController.h"
 #import <Photos/Photos.h>
 #import "HUAlbumCell.h"
+#import "HUPhotoAlbum.h"
 
-@interface HUAlbumTableViewController () <PHPhotoLibraryChangeObserver>
+@interface HUAlbumTableViewController () <PHPhotoLibraryChangeObserver> {
+    PHFetchResult<PHAssetCollection *> *_smartAlbums;
+    PHFetchResult<PHCollection *> *_userCollectons;
+}
 
 @property (nonatomic, strong) PHFetchResult<PHAsset *> *allPhotos;
-@property (nonatomic, strong) PHFetchResult<PHAssetCollection *> *smartAlbums;
-@property (nonatomic, strong) PHFetchResult<PHCollection *> *userCollectons;
+//@property (nonatomic, strong) NSArray<PHAssetCollection *> *smartAlbums;
+//@property (nonatomic, strong) NSArray<PHCollection *> *userCollectons;
 
 @property (nonatomic, strong) PHCachingImageManager *cachingImageManager;
 @property (nonatomic, strong) PHImageRequestOptions *options;
+
+
+@property (nonatomic, strong) NSArray<HUPhotoAlbum *>  *allAlbums;
 
 @end
 
@@ -55,20 +62,6 @@
     }
 }
 
-- (void)setupData {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
-    
-    self.tableView.rowHeight = 80;
-    [self.tableView registerNib:[HUAlbumCell nib] forCellReuseIdentifier:[HUAlbumCell reuseIdentifier]];
-    _cachingImageManager = [[PHCachingImageManager alloc] init];
-    
-    PHFetchOptions *options = [PHFetchOptions new];
-    _allPhotos = [PHAsset fetchAssetsWithOptions:options];
-    _smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumSyncedAlbum options:nil];
-    _userCollectons = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
-    
-    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -80,20 +73,15 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 2;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else if (section == 1) {
-        return _smartAlbums.count;
-    }
-    
-    return _userCollectons.count;
+    return self.allAlbums.count;
 }
 
 
@@ -101,28 +89,12 @@
     
     PHAsset *asset = nil;
     HUAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:[HUAlbumCell reuseIdentifier] forIndexPath:indexPath];
-    if (indexPath.section == 0) {
-        cell.titleLabel.text = @"所有照片";
-        cell.countLabel.text = [NSString stringWithFormat:@"%zd", _allPhotos.count];
-        asset = [_allPhotos firstObject];
-        
-    } else if (indexPath.section == 1) {
-        PHAssetCollection *collection = _smartAlbums[indexPath.row];
-        cell.titleLabel.text = collection.localizedTitle;
-        
-        PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
-        cell.countLabel.text = [NSString stringWithFormat:@"%zd", results.count];
-        asset = [results firstObject];
-        
-    } else if (indexPath.section == 2) {
-        PHCollection *collection = _userCollectons[indexPath.row];
-        cell.titleLabel.text = collection.localizedTitle;
-        if ([collection isKindOfClass:[PHAssetCollection class]]) {
-            PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:(PHAssetCollection *)collection options:nil];
-            cell.countLabel.text = [NSString stringWithFormat:@"%zd", results.count];
-            asset = [results firstObject];
-        }
-    }
+    HUPhotoAlbum *album = self.allAlbums[indexPath.row];
+    cell.titleLabel.text = album.title;
+    cell.countLabel.text = [NSString stringWithFormat:@"%zd", album.assetCount];
+    
+    PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:album.collection options:nil];
+    asset = [results firstObject];
     
     [_cachingImageManager requestImageForAsset:asset targetSize:CGSizeMake(120, 120) contentMode:PHImageContentModeDefault options:_options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
 //        NSLog(@"result: %@", result);
@@ -133,24 +105,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HUPhotoAlbum *album = self.allAlbums[indexPath.row];
+    
     HUImageGridViewController *vc = [[HUImageGridViewController alloc] init];
-    if (indexPath.section == 0) {
-        vc.fetchResult = _allPhotos;
-        vc.title = @"所有照片";
-    } else if (indexPath.section == 1) {
-        PHAssetCollection *collection = _smartAlbums[indexPath.row];
-        vc.title = collection.localizedTitle;
-        PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
-        vc.fetchResult = results;
-        
-    } else if (indexPath.section == 2) {
-        PHCollection *collection = _userCollectons[indexPath.row];
-        vc.title = collection.localizedTitle;
-        if ([collection isKindOfClass:[PHAssetCollection class]]) {
-            PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:(PHAssetCollection *)collection options:nil];
-            vc.fetchResult = results;
-        }
-    }
+    PHFetchOptions *options = [PHFetchOptions new];
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:album.collection options:options];
+    vc.title = album.title;
+    vc.fetchResult = results;
     [self.navigationController pushViewController:vc animated:true];
 }
 
@@ -164,21 +126,82 @@
         
         if (all) {
             _allPhotos = [all fetchResultAfterChanges];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
         }
         
         if (details) {
             _smartAlbums = [details fetchResultAfterChanges];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
         }
         
         if (users) {
             _userCollectons = [users fetchResultAfterChanges];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
         }
+        
+        self.allAlbums = [self getPhotoAlbumsFromSmallAlbumsAndUserCollections];
+        [self.tableView reloadData];
         
     });
 }
+
+# pragma mark - Private
+
+- (void)setupData {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
+    
+    self.tableView.rowHeight = 80;
+    [self.tableView registerNib:[HUAlbumCell nib] forCellReuseIdentifier:[HUAlbumCell reuseIdentifier]];
+    _cachingImageManager = [[PHCachingImageManager alloc] init];
+    
+    PHFetchOptions *options = [PHFetchOptions new];
+    options.includeAssetSourceTypes = PHAssetResourceTypePhoto;
+    
+    _smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumSyncedAlbum options:options];
+    _userCollectons = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:options];
+    
+    self.allAlbums = [self getPhotoAlbumsFromSmallAlbumsAndUserCollections];
+    
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    _allPhotos = [PHAsset fetchAssetsWithOptions:options];
+    
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+}
+
+- (NSArray<HUPhotoAlbum *> *)getPhotoAlbumsFromSmallAlbumsAndUserCollections {
+    NSMutableArray<HUPhotoAlbum *> *allAlums = [NSMutableArray array];
+    NSArray<HUPhotoAlbum *> *smarts = [self getPhotoAlbumsWithPHAssetCollection:_smartAlbums];
+    [allAlums addObjectsFromArray:smarts];
+    NSArray<HUPhotoAlbum *> *users = [self getPhotoAlbumsWithPHAssetCollection:_userCollectons];
+    [allAlums addObjectsFromArray:users];
+    
+    return [allAlums copy];
+}
+
+- (NSArray<HUPhotoAlbum *> *)getPhotoAlbumsWithPHAssetCollection:(id)assetCollections {
+    NSMutableArray<HUPhotoAlbum *> *collections = [NSMutableArray array];
+    
+    HUPhotoAlbum *album = nil;
+    for (PHCollection *collection in assetCollections) {
+        if ([collection isKindOfClass:[PHAssetCollection class]]) {
+            PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:(PHAssetCollection *)collection options:nil];
+            if (results.count > 0) {
+                album = [HUPhotoAlbum photoAlbumWithAssetCollection:(PHAssetCollection*)collection assetCount:results.count];
+                [collections addObject: album];
+            }
+        }
+    }
+    
+    return collections;
+}
+
+#pragma mark - getter & setter
+
+- (NSArray *)allAlbums {
+    if (_allAlbums == nil) {
+        _allAlbums = [NSArray array];
+    }
+    return _allAlbums;
+}
+
 
 - (PHImageRequestOptions *)options {
     if (_options == nil) {

@@ -8,6 +8,7 @@
 
 #import "HUImageGridViewController.h"
 #import "HUImageGridCell.h"
+#import "HUTakePhotoCell.h"
 #import "HUImagePickerViewController.h"
 #import "HUImageSelectModel.h"
 #import "HUPHAuthorizationNotDeterminedView.h"
@@ -15,11 +16,14 @@
 #import "UIView+HUConstraint.m"
 #import "UIBarButtonItem+HUButton.h"
 #import "HUPhotoManager.h"
+#import "HUToast.h"
 
-@interface HUImageGridViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UIGestureRecognizerDelegate>
+@interface HUImageGridViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+    NSInteger _cloumns;
+}
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIButton *uploadButton;
+@property (nonatomic, strong) UIButton *titleButton;
 @property (nonatomic, strong) PHCachingImageManager *cachingImageManager;
 @property (nonatomic, strong) PHImageRequestOptions *options;
 @property (nonatomic, assign) CGSize targetSize;
@@ -58,13 +62,6 @@
     [self setupData];
 }
 
-- (void)viewDidLayoutSubviews {
-    
-    [super viewDidLayoutSubviews];
-    
-    [self.collectionView setContentOffset:CGPointMake(0, self.collectionView.contentSize.height - self.collectionView.frame.size.height) animated:NO];
-}
-
 - (void)dealloc {
     
     if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
@@ -73,49 +70,24 @@
 }
 
 
-- (void)setupData {
-    [self setupView];
-    
 
-    if (_fetchResult == nil) {
-        PHFetchOptions *options = [PHFetchOptions new];
-        self.fetchResult = [PHAsset fetchAssetsWithOptions:options];
-        self.title = @"所有照片";
-    }
-    
-    CGFloat width = ((self.view.frame.size.width - 4.5) / 4) * [UIScreen mainScreen].scale;
-    _targetSize = CGSizeMake(width, width);
-    _cachingImageManager = [[PHCachingImageManager alloc] init];
-    
-    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-    
-}
-
-
-- (void)setFetchResult:(PHFetchResult<PHAsset *> *)fetchResult {
-    _fetchResult = fetchResult;
-    
-    for (NSInteger i=0; i<fetchResult.count; i++) {
-        HUImageSelectModel *model = [HUImageSelectModel new];
-        model.indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-        [self.selectModels addObject:model];
-    }
-    
-    [self.collectionView reloadData];
-}
 
 #pragma mark - Collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _fetchResult.count;
+    return _fetchResult.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PHAsset *asset = _fetchResult[indexPath.item];
+    if (indexPath.item == 0) {
+        HUTakePhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[HUTakePhotoCell reuseIdentifier] forIndexPath:indexPath];
+        return cell;
+    }
+    PHAsset *asset = _fetchResult[indexPath.item - 1];
     
     HUImageGridCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[HUImageGridCell reuseIdentifier] forIndexPath:indexPath];
     cell.representedAssetIdentifier = asset.localIdentifier;
-    cell.model = self.selectModels[indexPath.item];
+    cell.model = self.selectModels[indexPath.item-1];
     [_cachingImageManager requestImageForAsset:asset targetSize:_targetSize contentMode:PHImageContentModeDefault options:_options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         BOOL isDegraded = [info[PHImageResultIsDegradedKey] boolValue];
         
@@ -128,31 +100,46 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    PHAsset *asset = _fetchResult[indexPath.item];
+    if (indexPath.item == 0) {
+        [self takePhoto];
+        return;
+    }
+    PHAsset *asset = _fetchResult[indexPath.item-1];
     if (asset.mediaType != PHAssetMediaTypeImage) {
-//        [SVProgressHUD showInfoWithStatus:@"只支持选择图片"];
         return;
     }
     
-    HUImageSelectModel *model = self.selectModels[indexPath.item];
+    HUImageSelectModel *model = self.selectModels[indexPath.item-1];
     
-    
-    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
-    if (self.selectIndexPaths.count >= pickVc.maxCount && !model.isSelected) {
-        NSString *title = [NSString stringWithFormat:@"你最多只能选择%zd张照片", pickVc.maxCount];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
-        [alert show];
-        return;
-    }
-    
-    model.isSelected = !model.isSelected;
-    
-    if (model.isSelected) {
-        [self.selectIndexPaths addObject:indexPath];
-        model.index = self.selectIndexPaths.count;
-        model.asset = _fetchResult[indexPath.item];
-        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    if (!model.isSelected) {
+        [[HUPhotoManager sharedInstance] checkPhotoIsAvaliableWithAsset:asset progress:^(double progress) {
+            
+        } completed:^(BOOL avaliable, UIImage * _Nonnull image) {
+            if (avaliable) {
+                HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+                if (self.selectIndexPaths.count >= pickVc.maxCount && !model.isSelected) {
+                    NSString *title = [NSString stringWithFormat:@"你最多只能选择%zd张照片", pickVc.maxCount];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+                    [alert show];
+                    return;
+                }
+                
+                model.isSelected = !model.isSelected;
+                
+                [self.selectIndexPaths addObject:indexPath];
+                model.index = self.selectIndexPaths.count;
+                model.asset = _fetchResult[indexPath.item-1];
+                [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                
+                [self resetRightBarButton];
+            } else {
+                [HUToast makeToast:@"iCloud同步中" inView:self.view];
+            }
+        }];
     } else {
+        
+        model.isSelected = !model.isSelected;
+        
         [self.selectIndexPaths removeObject:indexPath];
         model.asset = nil;
         NSMutableArray *indexPaths = [NSMutableArray array];
@@ -166,29 +153,84 @@
         }
         
         [collectionView reloadItemsAtIndexPaths:indexPaths];
+        [self resetRightBarButton];
     }
     
-    [self.uploadButton setTitle:[NSString stringWithFormat:@"上传(%zd)", self.selectIndexPaths.count] forState:UIControlStateNormal];
+   
+//    return;
+//    
+//    
+//    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+//    if (self.selectIndexPaths.count >= pickVc.maxCount && !model.isSelected) {
+//        NSString *title = [NSString stringWithFormat:@"你最多只能选择%zd张照片", pickVc.maxCount];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+//        [alert show];
+//        return;
+//    }
+//    
+//    model.isSelected = !model.isSelected;
+//    
+//    if (model.isSelected) {
+//        [self.selectIndexPaths addObject:indexPath];
+//        model.index = self.selectIndexPaths.count;
+//        model.asset = _fetchResult[indexPath.item-1];
+//        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//    } else {
+//        [self.selectIndexPaths removeObject:indexPath];
+//        model.asset = nil;
+//        NSMutableArray *indexPaths = [NSMutableArray array];
+//        [indexPaths addObject:indexPath];
+//        
+//        for (HUImageSelectModel *obj in self.selectModels) {
+//            if (obj != model && obj.index > model.index) {
+//                obj.index -= 1;
+//                [indexPaths addObject:obj.indexPath];
+//            }
+//        }
+//        
+//        [collectionView reloadItemsAtIndexPaths:indexPaths];
+//    }
+    
+   // [self.uploadButton setTitle:[NSString stringWithFormat:@"上传(%zd)", self.selectIndexPaths.count] forState:UIControlStateNormal];
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat wh = (self.view.frame.size.width - 4.5) / 4;
+    CGFloat space = 1.5 * (_cloumns - 1);
+    CGFloat wh = (self.view.frame.size.width - space) / _cloumns;
     return CGSizeMake(wh, wh);
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+    if ([pickVc.delegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImages:assets:)]) {
+        [pickVc.delegate imagePickerViewController:pickVc didFinishPickingImageWithImages:@[image] assets:nil];
+    }
+
 }
 
 #pragma mark - PHPhotoLibraryChangeObserver
 
 - (void)photoLibraryDidChange:(PHChange *)changeInstance {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        
-        PHFetchResultChangeDetails *details = [changeInstance changeDetailsForFetchResult:_fetchResult];
-        if (details) {
-            self.fetchResult = [details fetchResultAfterChanges];
-            [self.collectionView reloadData];
-        }
-        
-    });
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//        
+//        PHFetchResultChangeDetails *details = [changeInstance changeDetailsForFetchResult:_fetchResult];
+//        if (details) {
+//            self.fetchResult = [details fetchResultAfterChanges];
+////            [self.collectionView reloadData];
+//        }
+//        
+//    });
 }
 
 #pragma mark - Action
@@ -218,11 +260,9 @@
     }
     
     if (assets.count == 0) {
-//        [SVProgressHUD showInfoWithStatus:@"请选择照片"];
         return;
     }
     
-//    [SVProgressHUD show];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self fetchPhotoWithAsset:assets];
     });
@@ -235,23 +275,46 @@
 - (void)fetchPhotoWithAsset:(NSArray<PHAsset *> *)assets {
     
     [[HUPhotoManager sharedInstance] fetchPhotosWithAssets:assets progress:nil completed:^(NSArray<UIImage *> * _Nonnull images) {
-        if (![self.navigationController isKindOfClass:[HUImagePickerViewController class]]) {
-            //                        [SVProgressHUD dismiss];
-            return;
-        }
         
-        NSLog(@"images: %@", images);
-        HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
-        if ([pickVc.delegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImages:assets:)]) {
-            [pickVc.delegate imagePickerViewController:pickVc didFinishPickingImageWithImages:images assets:assets];
-        }
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (![self.navigationController isKindOfClass:[HUImagePickerViewController class]]) {
+                return;
+            }
+            
+            NSLog(@"images: %@", images);
+            HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+            if ([pickVc.delegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImages:assets:)]) {
+                [pickVc.delegate imagePickerViewController:pickVc didFinishPickingImageWithImages:images assets:assets];
+            }
+
+        });
     }];
 
 }
 
+- (void)takePhoto {
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [[[UIAlertView alloc] initWithTitle:@"您的设备不支持相机" message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+
 - (void)back {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)resetRightBarButton {
+    self.navigationItem.rightBarButtonItem.enabled = self.selectIndexPaths.count > 0;
+    
+    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+    NSString *rightTitle = self.selectIndexPaths.count > 0 ? [NSString stringWithFormat:@"确定(%zd/%zd)", self.selectIndexPaths.count, pickVc.maxCount] : @"确定";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:rightTitle style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -266,33 +329,61 @@
 - (void)setupView {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     [self.view addSubview:self.collectionView];
     [self.view addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.collectionView]];
     [self.view addConstraintsWithVisualFormat:@"V:|[v0]|" views:@[self.collectionView]];
     
-//    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectZero];
-//    bottomView.backgroundColor = UIColorMake(65, 206, 199);
-//    [self.view addSubview:bottomView];
-//    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.left.right.equalTo(self.view);
-//        make.height.mas_equalTo(49);
-//    }];
-//
-//    _uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _uploadButton.backgroundColor = [UIColor whiteColor];
-//    [_uploadButton setTitle:@"上传" forState:UIControlStateNormal];
-//    [_uploadButton setTitleColor:UIColorMake(65, 206, 199) forState:UIControlStateNormal];
-//    _uploadButton.titleLabel.font = UIFontMake(17);
+    self.navigationItem.titleView = self.titleButton;
+    if (self.title) {
+        [self.titleButton setTitle:self.title forState:UIControlStateNormal];
+    }
+    
+
 //    [_uploadButton addTarget:self action:@selector(uploadButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-//    [bottomView addSubview:_uploadButton];
-//    [_uploadButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.left.right.equalTo(self.view);
-//        make.height.mas_equalTo(48);
-//    }];
+
+}
+
+- (void)setupData {
+    
+    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+    _cloumns = pickVc.numberOfColumns;
+    [[HUPhotoManager sharedInstance] setNetworkAccessAllowed:pickVc.isNetworkAccessAllowed];
+    
+    [self setupView];
+    
+    if (_fetchResult == nil) {
+        PHFetchOptions *options = [PHFetchOptions new];
+        options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+        self.fetchResult = [PHAsset fetchAssetsWithOptions:options];
+        self.title = @"所有照片";
+    }
+    
+    CGFloat width = ((self.view.frame.size.width - 4.5) / 4) * [UIScreen mainScreen].scale;
+    _targetSize = CGSizeMake(width, width);
+    _cachingImageManager = [[PHCachingImageManager alloc] init];
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
     
 }
 
+#pragma mark - getter & setter
+
+
+- (void)setFetchResult:(PHFetchResult<PHAsset *> *)fetchResult {
+    _fetchResult = fetchResult;
+    [self.selectModels removeAllObjects];
+    [self.selectIndexPaths removeAllObjects];
+    
+    for (NSInteger i=0; i<fetchResult.count; i++) {
+        HUImageSelectModel *model = [HUImageSelectModel new];
+        model.indexPath = [NSIndexPath indexPathForItem:i+1 inSection:0];
+        [self.selectModels addObject:model];
+    }
+    
+    [self.collectionView reloadData];
+}
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -304,11 +395,23 @@
         _collectionView.delegate = self;
         _collectionView.backgroundColor = UIColorMake(238, 241, 242);
         _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-       // _collectionView.showsVerticalScrollIndicator = NO;
+        [_collectionView setAlwaysBounceVertical:YES];
+        [_collectionView registerClass:[HUTakePhotoCell class] forCellWithReuseIdentifier:[HUTakePhotoCell reuseIdentifier]];
         [_collectionView registerClass:[HUImageGridCell class] forCellWithReuseIdentifier:[HUImageGridCell reuseIdentifier]];
     }
     return _collectionView;
 }
+
+- (UIButton *)titleButton {
+    if (_titleButton == nil) {
+        _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_titleButton setTitle:@"全部照片" forState:UIControlStateNormal];
+        [_titleButton setTitleColor:UIColorMake(30, 30, 30) forState:UIControlStateNormal];
+        _titleButton.titleLabel.font = UIFontMake(16);
+    }
+    return _titleButton;
+}
+
 
 - (PHImageRequestOptions *)options {
     if (_options == nil) {

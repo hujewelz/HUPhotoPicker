@@ -73,7 +73,9 @@
     for (PHAsset *asset in shouldDownlds) {
         [self fetchPhotoWithAsset:asset progress:^(double _progress) {
              if (progress) {
-                 progress(_progress / count);
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     progress(_progress / count);
+                 });
              }
             
         } completed:^(BOOL success, UIImage * _Nullable image) {
@@ -82,10 +84,15 @@
             
             if (downloadeds.count >= assets.count) {
                 if (progress) {
-                    progress(1);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        progress(1);
+                    });
+                    
                 }
                 if (completed) {
-                    completed(downloadeds);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                         completed(downloadeds);
+                    });
                 }
             }
             
@@ -98,7 +105,7 @@
 
 - (void)fetchPhotoWithAsset:(nonnull PHAsset *)asset
                    progress:(nullable void(^)(double progress))progress
-                  completed:(nullable void(^)(BOOL success, UIImage * _Nonnull  image))completed {
+                  completed:(nullable void(^)(BOOL avaliable, UIImage * _Nonnull  image))completed {
     
     UIImage *cachedImage = [self.imageCache objectForKey:asset.localIdentifier];
     if (cachedImage) {
@@ -111,10 +118,6 @@
         return;
     }
     
-    PHImageRequestOptions *options = [PHImageRequestOptions new];
-    [options setNetworkAccessAllowed:YES];
-    options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
-    options.resizeMode = PHImageRequestOptionsResizeModeFast;
     [self.requestOptions setProgressHandler: ^(double _progress, NSError *__nullable error, BOOL *stop, NSDictionary *__nullable info) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (progress) {
@@ -123,13 +126,8 @@
         });
     }];
     
-    CGFloat scale = [UIScreen mainScreen].scale;
-    CGSize targetSize = CGSizeMake(asset.pixelWidth * scale, asset.pixelHeight * scale);
-    PHImageRequestID requestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:targetSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        
-//        NSLog(@"info: %@", info);
-//        NSLog(@"image: %@", result);
-//
+    PHImageRequestID requestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:self.requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    
         if (result) {
             [self.imageCache setObject:result forKey:asset.localIdentifier];
         }
@@ -138,8 +136,7 @@
         BOOL isInCloudKey = [[info objectForKey:PHImageResultIsInCloudKey] boolValue];
         // 从iCloud下载图片
         if (result && downloadFinined) {
-            NSLog(@"图片下载成功");
-            
+    
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (completed) {
                     completed(YES, result);
@@ -164,6 +161,59 @@
 
 }
 
+- (void)checkPhotoIsAvaliableWithAsset:(nonnull PHAsset *)asset
+                   progress:(nullable void(^)(double progress))progress
+                  completed:(nullable void(^)(BOOL avaliable, UIImage * _Nonnull  image))completed {
+    UIImage *cachedImage = [self.imageCache objectForKey:asset.localIdentifier];
+    if (cachedImage) {
+        if (progress) {
+            progress(1);
+        }
+        if (completed) {
+            completed(YES, cachedImage);
+        }
+        return;
+    }
+    
+    PHImageRequestOptions *options = [PHImageRequestOptions new];
+    [options setNetworkAccessAllowed:NO];
+    [options setSynchronous:YES];
+    [options setProgressHandler: ^(double _progress, NSError *__nullable error, BOOL *stop, NSDictionary *__nullable info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progress) {
+                progress(_progress);
+            }
+        });
+    }];
+    
+    PHImageRequestID requestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        
+        if (result) {
+            [self.imageCache setObject:result forKey:asset.localIdentifier];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completed) {
+                    completed(YES, result);
+                }
+            });
+        } else {
+            if (self.isNetworkAccessAllowed) {
+                [self fetchPhotoWithAsset:asset progress:nil completed:nil];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completed) {
+                    completed(NO, result);
+                }
+            });
+        }
+        
+    }];
+    
+    [self.imageRequestIDs setObject:@(requestID) forKey:asset.localIdentifier];
+    
+    
+}
+
 - (void)cancelPhotoRequest {
     
     for (NSNumber *obj in self.imageRequestIDs) {
@@ -183,8 +233,6 @@
     
     [[PHImageManager defaultManager] cancelImageRequest:idNumber.intValue];
 }
-
-
 
 - (void)clearCache {
     [self.imageCache removeAllObjects];
@@ -210,10 +258,7 @@
 - (PHImageRequestOptions *)requestOptions {
     if (_requestOptions == nil) {
         _requestOptions = [PHImageRequestOptions new];
-        //[options setSynchronous:YES];
         [_requestOptions setNetworkAccessAllowed:YES];
-        _requestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
-        _requestOptions.resizeMode = PHImageRequestOptionsResizeModeFast;
     }
     return _requestOptions;
 }

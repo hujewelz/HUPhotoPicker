@@ -11,6 +11,8 @@
 @class PHAsset;
 @interface HUPhotoManager : NSObject
 
+@property (nonatomic, assign, getter=isNetworkAccessAllowed) BOOL networkAccessAllowed;
+
 
 + (nonnull instancetype)sharedInstance;
 
@@ -24,6 +26,8 @@
 
 - (void)cancelPhotoRequest;
 
-- (BOOL)isPhotoDownloaded:(nonnull PHAsset *)asset;
+- (void)checkPhotoIsAvaliableWithAsset:(nonnull PHAsset *)asset
+                              progress:(nullable void(^)(double progress))progress
+                             completed:(nullable void(^)(BOOL avaliable, UIImage * _Nonnull  image))completed;
 
 @end

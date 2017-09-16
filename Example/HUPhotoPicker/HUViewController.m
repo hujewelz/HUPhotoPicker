@@ -58,6 +58,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     _images = images;
+    
+    NSLog(@"------images: %@", images);
     [self.collectionView reloadData];
 }
 

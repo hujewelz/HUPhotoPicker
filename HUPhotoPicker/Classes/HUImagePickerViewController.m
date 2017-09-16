@@ -21,7 +21,8 @@
 @implementation HUImagePickerViewController
 @synthesize delegate = _delegate;
 
-- (instancetype)init {
+- (instancetype)initWithMaxCount:(NSInteger)maxCount numberOfColumns:(NSInteger)columns {
+    
     UIViewController *rootVc = nil;
     PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
     if (author == PHAuthorizationStatusRestricted || author == PHAuthorizationStatusDenied) {
@@ -32,8 +33,14 @@
     self = [super initWithRootViewController:rootVc];
     if (self) {
         _maxCount = 10;
+        _numberOfColumns = columns;
     }
     return self;
+}
+
+- (instancetype)init {
+    
+    return [self initWithMaxCount:10 numberOfColumns:4];
 }
 
 
@@ -42,6 +49,16 @@
     
     
     [[UINavigationBar appearance] setTintColor:UIColorMake(30, 30, 30)];
+    NSDictionary *titleAttribute = @{NSForegroundColorAttributeName:UIColorMake(30, 30, 30), NSFontAttributeName:[UIFont systemFontOfSize:17]};
+    [[UINavigationBar appearance] setTitleTextAttributes:titleAttribute];
+    
+    //设置正常状态
+    NSDictionary *attribute = @{NSForegroundColorAttributeName:UIColorMake(30, 30, 30), NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attribute forState:UIControlStateNormal];
+    
+    //设置不可用状态
+    NSDictionary *disAttribute = @{NSForegroundColorAttributeName:UIColorMake(209, 209, 209), NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:disAttribute forState:UIControlStateDisabled];
     
     PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
     if (author == PHAuthorizationStatusNotDetermined || author == PHAuthorizationStatusAuthorized) {
