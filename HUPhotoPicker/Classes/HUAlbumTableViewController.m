@@ -107,13 +107,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HUPhotoAlbum *album = self.allAlbums[indexPath.row];
     
-    HUImageGridViewController *vc = [[HUImageGridViewController alloc] init];
+    //HUImageGridViewController *vc = [[HUImageGridViewController alloc] init];
     PHFetchOptions *options = [PHFetchOptions new];
     options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
     PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:album.collection options:options];
-    vc.title = album.title;
-    vc.fetchResult = results;
-    [self.navigationController pushViewController:vc animated:true];
+//    vc.title = album.title;
+//    vc.fetchResult = results;
+//    [self.navigationController pushViewController:vc animated:true];
+    
+    if (_didSelectedAlbum) {
+         _didSelectedAlbum(album.title, results);
+    }
+   
 }
 
 

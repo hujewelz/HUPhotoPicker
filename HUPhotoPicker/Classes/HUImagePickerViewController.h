@@ -23,11 +23,16 @@
 
 @interface HUImagePickerViewController : UINavigationController
 
+- (instancetype _Nonnull )initWithMaxCount:(NSInteger)maxCount numberOfColumns:(NSInteger)columns;
+
+
 @property (nonatomic, weak, nullable) id <HUImagePickerViewControllerDelegate, UINavigationControllerDelegate> delegate;
 
 @property (nonatomic, assign) NSInteger maxCount;
 
 @property (nonatomic, assign) NSInteger numberOfColumns;
+
+@property (nonatomic, assign) CGFloat spacing;
 
 /// 是否允许通过网络下载iCloud图片，默认为 NO
 @property (nonatomic, assign, getter=isNetworkAccessAllowed) BOOL networkAccessAllowed;

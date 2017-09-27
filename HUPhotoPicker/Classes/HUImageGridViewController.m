@@ -9,9 +9,11 @@
 #import "HUImageGridViewController.h"
 #import "HUImageGridCell.h"
 #import "HUTakePhotoCell.h"
+#import "HUNavTitleView.h"
 #import "HUImagePickerViewController.h"
 #import "HUImageSelectModel.h"
 #import "HUPHAuthorizationNotDeterminedView.h"
+#import "HUAlbumTableViewController.h"
 #import "Asset.h"
 #import "UIView+HUConstraint.m"
 #import "UIBarButtonItem+HUButton.h"
@@ -20,10 +22,12 @@
 
 @interface HUImageGridViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NSInteger _cloumns;
+    CGFloat _spacing;
+    __weak HUAlbumTableViewController *_albumVC;
 }
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIButton *titleButton;
+@property (nonatomic, strong) HUNavTitleView *navTitleView;
 @property (nonatomic, strong) PHCachingImageManager *cachingImageManager;
 @property (nonatomic, strong) PHImageRequestOptions *options;
 @property (nonatomic, assign) CGSize targetSize;
@@ -31,6 +35,7 @@
 @property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexPaths;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) HUPHAuthorizationNotDeterminedView *notDeterminedView;
+@property (nonatomic, strong) UIView *bgMask;
 
 @end
 
@@ -41,7 +46,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem leftItemWithImage:UIImageMake(@"nav_back") target:self action:@selector(back)];
+    
+    //self.navigationItem.leftBarButtonItem = [UIBarButtonItem leftItemWithImage:UIImageMake(@"nav_back") target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     
     PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
     if (author == PHAuthorizationStatusNotDetermined) {
@@ -68,9 +75,6 @@
         [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
     }
 }
-
-
-
 
 #pragma mark - Collection view data source
 
@@ -196,7 +200,7 @@
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat space = 1.5 * (_cloumns - 1);
+    CGFloat space = _spacing * (_cloumns - 1);
     CGFloat wh = (self.view.frame.size.width - space) / _cloumns;
     return CGSizeMake(wh, wh);
 }
@@ -266,9 +270,36 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self fetchPhotoWithAsset:assets];
     });
-    
+}
+
+- (void)selectPhotoAlbum:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.isSelected) {
+        self.bgMask.hidden = NO;
+        _albumVC.view.hidden = NO;
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.bgMask.alpha = 1;
+            _albumVC.view.transform = CGAffineTransformMakeTranslation(0, CGRectGetHeight(self.view.frame)-200+64);
+        } completion:^(BOOL finished) {
+            
+        }];
+    } else {
+        [self dismissPhotoAlbum];
+    }
     
 }
+
+- (void)dismissPhotoAlbum {
+    _navTitleView.selected = NO;
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.bgMask.alpha = 0;
+        _albumVC.view.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.bgMask.hidden = YES;
+        _albumVC.view.hidden = YES;
+    }];
+}
+
 
 #pragma mark - Private
 
@@ -281,7 +312,6 @@
                 return;
             }
             
-            NSLog(@"images: %@", images);
             HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
             if ([pickVc.delegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImages:assets:)]) {
                 [pickVc.delegate imagePickerViewController:pickVc didFinishPickingImageWithImages:images assets:assets];
@@ -309,12 +339,18 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)resetRightBarButton {
-    self.navigationItem.rightBarButtonItem.enabled = self.selectIndexPaths.count > 0;
     
     HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
     NSString *rightTitle = self.selectIndexPaths.count > 0 ? [NSString stringWithFormat:@"确定(%zd/%zd)", self.selectIndexPaths.count, pickVc.maxCount] : @"确定";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:rightTitle style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
+    self.navigationItem.rightBarButtonItem.enabled = self.selectIndexPaths.count > 0;
+    NSDictionary *attribute = @{NSForegroundColorAttributeName:UIColorMake(48, 144, 255), NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:attribute forState:UIControlStateNormal];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -335,13 +371,26 @@
     [self.view addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.collectionView]];
     [self.view addConstraintsWithVisualFormat:@"V:|[v0]|" views:@[self.collectionView]];
     
-    self.navigationItem.titleView = self.titleButton;
-    if (self.title) {
-        [self.titleButton setTitle:self.title forState:UIControlStateNormal];
-    }
+    self.navigationItem.titleView = self.navTitleView;
+    //self.navTitleView.title = @"全部照片";
     
-
-//    [_uploadButton addTarget:self action:@selector(uploadButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.bgMask];
+    [self.view addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.bgMask]];
+    [self.view addConstraintsWithVisualFormat:@"V:|[v0]|" views:@[self.bgMask]];
+    
+    CGFloat height = CGRectGetHeight(self.view.frame)-200;
+    HUAlbumTableViewController *albumVC = [[HUAlbumTableViewController alloc] init];
+    albumVC.didSelectedAlbum = ^(NSString *title, PHFetchResult *fetchResult) {
+        [self dismissPhotoAlbum];
+        self.navTitleView.title = title;
+        self.fetchResult = fetchResult;
+    };
+    albumVC.view.frame = CGRectMake(0, -height, CGRectGetWidth(self.view.frame), height);
+    albumVC.view.hidden = YES;
+    [self.view addSubview:albumVC.view];
+    [self addChildViewController:albumVC];
+    [albumVC didMoveToParentViewController:self];
+    _albumVC = albumVC;
 
 }
 
@@ -349,6 +398,7 @@
     
     HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
     _cloumns = pickVc.numberOfColumns;
+    _spacing = pickVc.spacing;
     [[HUPhotoManager sharedInstance] setNetworkAccessAllowed:pickVc.isNetworkAccessAllowed];
     
     [self setupView];
@@ -357,10 +407,10 @@
         PHFetchOptions *options = [PHFetchOptions new];
         options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
         self.fetchResult = [PHAsset fetchAssetsWithOptions:options];
-        self.title = @"所有照片";
     }
     
-    CGFloat width = ((self.view.frame.size.width - 4.5) / 4) * [UIScreen mainScreen].scale;
+    CGFloat space = _spacing * (_cloumns - 1);
+    CGFloat width = ((self.view.frame.size.width - space) / _cloumns) * [UIScreen mainScreen].scale;
     _targetSize = CGSizeMake(width, width);
     _cachingImageManager = [[PHCachingImageManager alloc] init];
     
@@ -375,6 +425,7 @@
     _fetchResult = fetchResult;
     [self.selectModels removeAllObjects];
     [self.selectIndexPaths removeAllObjects];
+    [self resetRightBarButton];
     
     for (NSInteger i=0; i<fetchResult.count; i++) {
         HUImageSelectModel *model = [HUImageSelectModel new];
@@ -387,31 +438,50 @@
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumLineSpacing = 1.5;
-        layout.minimumInteritemSpacing = 1.5;
-        layout.sectionInset = UIEdgeInsetsMake(1.5, 0, 1.5, 0);
+        layout.minimumLineSpacing = _spacing;
+        layout.minimumInteritemSpacing = _spacing;
+        layout.sectionInset = UIEdgeInsetsMake(_spacing, 0, _spacing, 0);
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = UIColorMake(238, 241, 242);
         _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+//        if (@available(iOS 11.0, *)) {
+//            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
+
         [_collectionView setAlwaysBounceVertical:YES];
         [_collectionView registerClass:[HUTakePhotoCell class] forCellWithReuseIdentifier:[HUTakePhotoCell reuseIdentifier]];
         [_collectionView registerClass:[HUImageGridCell class] forCellWithReuseIdentifier:[HUImageGridCell reuseIdentifier]];
+        
     }
     return _collectionView;
 }
 
-- (UIButton *)titleButton {
-    if (_titleButton == nil) {
-        _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_titleButton setTitle:@"全部照片" forState:UIControlStateNormal];
-        [_titleButton setTitleColor:UIColorMake(30, 30, 30) forState:UIControlStateNormal];
-        _titleButton.titleLabel.font = UIFontMake(16);
+
+
+- (HUNavTitleView *)navTitleView {
+    if (_navTitleView == nil) {
+        _navTitleView = [HUNavTitleView buttonWithType:UIButtonTypeCustom];
+        _navTitleView.bounds = CGRectMake(0, 0, 200, 44);
+        [_navTitleView setTitleColor:UIColorMake(30, 30, 30) forState:UIControlStateNormal];
+        [_navTitleView setImage:UIImageMake(@"album_open_icon") forState:UIControlStateNormal];
+        [_navTitleView setImage:UIImageMake(@"album_close_icon") forState:UIControlStateSelected];
+        _navTitleView.titleLabel.font = UIFontMake(16);
+        _navTitleView.title = @"全部照片";
+        [_navTitleView addTarget:self action:@selector(selectPhotoAlbum:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _titleButton;
+    return _navTitleView;
 }
 
+- (UIView *)bgMask {
+    if (_bgMask == nil) {
+        _bgMask = [[UIView alloc] init];
+        _bgMask.backgroundColor = [UIColor colorWithWhite:0 alpha:0.45];
+        _bgMask.alpha = 0;
+    }
+    return _bgMask;
+}
 
 - (PHImageRequestOptions *)options {
     if (_options == nil) {

@@ -77,15 +77,13 @@
 - (UIButton *)checkButton {
     if (_checkButton == nil) {
         _checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_checkButton setBackgroundImage:UIImageMake(@"zp_icon_select_no") forState:UIControlStateNormal];
-        [_checkButton setBackgroundImage:UIImageMake(@"image_selected") forState:UIControlStateSelected];
+        [_checkButton setBackgroundImage:UIImageMake(@"photo_button_normal") forState:UIControlStateNormal];
+        [_checkButton setBackgroundImage:UIImageMake(@"photo_button_selected") forState:UIControlStateSelected];
         [_checkButton setTitle:nil forState:UIControlStateNormal];
-        //_checkButton.enabled = NO;
         _checkButton.adjustsImageWhenHighlighted = NO;
         _checkButton.userInteractionEnabled = NO;
         [_checkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _checkButton.titleLabel.font = [UIFont systemFontOfSize:13];
-        //[_checkButton setImage:UIImageMake(@"zp_icon_select_no") forState:UIControlStateNormal];
     }
     return _checkButton;
 }

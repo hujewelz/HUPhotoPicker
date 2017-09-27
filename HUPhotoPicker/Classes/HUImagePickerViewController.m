@@ -32,8 +32,9 @@
     }
     self = [super initWithRootViewController:rootVc];
     if (self) {
-        _maxCount = 10;
+        _maxCount = maxCount;
         _numberOfColumns = columns;
+        _spacing = 1.5;
     }
     return self;
 }
@@ -53,19 +54,19 @@
     [[UINavigationBar appearance] setTitleTextAttributes:titleAttribute];
     
     //设置正常状态
-    NSDictionary *attribute = @{NSForegroundColorAttributeName:UIColorMake(30, 30, 30), NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    NSDictionary *attribute = @{NSForegroundColorAttributeName:UIColorMake(81, 88, 102), NSFontAttributeName:[UIFont systemFontOfSize:15]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:attribute forState:UIControlStateNormal];
     
     //设置不可用状态
     NSDictionary *disAttribute = @{NSForegroundColorAttributeName:UIColorMake(209, 209, 209), NSFontAttributeName:[UIFont systemFontOfSize:15]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:disAttribute forState:UIControlStateDisabled];
     
-    PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
-    if (author == PHAuthorizationStatusNotDetermined || author == PHAuthorizationStatusAuthorized) {
-        HUAlbumTableViewController *vc = [[HUAlbumTableViewController alloc] init];
-        
-        [self pushViewController:vc animated:true];
-    }
+//    PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
+//    if (author == PHAuthorizationStatusNotDetermined || author == PHAuthorizationStatusAuthorized) {
+//        HUAlbumTableViewController *vc = [[HUAlbumTableViewController alloc] init];
+//        
+//        [self pushViewController:vc animated:true];
+//    }
     
 }
 

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class PHFetchResult;
 @interface HUAlbumTableViewController : UITableViewController
+
+@property (nonatomic, copy) void (^didSelectedAlbum)(NSString *title, PHFetchResult *fetchResult);
 
 @end

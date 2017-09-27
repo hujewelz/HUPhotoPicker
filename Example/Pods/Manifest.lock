@@ -1,5 +1,5 @@
 PODS:
-  - HUPhotoPicker (0.1.0)
+  - HUPhotoPicker (0.1.1)
 
 DEPENDENCIES:
   - HUPhotoPicker (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  HUPhotoPicker: ac57d5e1bf802e4528b4362beac715b333f3e4df
+  HUPhotoPicker: 1c05bf5422dbe1792fede5c756820d571ebf7818
 
 PODFILE CHECKSUM: 15d9fdb0141b608acaa12a0e83598405cb088bb5
 
