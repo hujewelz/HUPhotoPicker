@@ -61,12 +61,14 @@
                 
                 return ;
             }
-            [self rightBarItemClicked];
+            [self dismiss];
         }];
         return;
     }
-       
-    [self setupData];
+    
+    if (author == PHAuthorizationStatusAuthorized) {
+        [self setupData];
+    }
 }
 
 - (void)dealloc {
@@ -109,8 +111,6 @@
         return;
     }
     
-    
-    
     PHAsset *asset = _fetchResult[indexPath.item-1];
     if (asset.mediaType != PHAssetMediaTypeImage) {
         return;
@@ -130,7 +130,6 @@
             
         } completed:^(BOOL avaliable, UIImage * _Nonnull image) {
             if (avaliable) {
-                
                 
                 model.isSelected = !model.isSelected;
                 
@@ -164,42 +163,6 @@
         [self resetRightBarButton];
     }
     
-   
-//    return;
-//    
-//    
-//    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
-//    if (self.selectIndexPaths.count >= pickVc.maxCount && !model.isSelected) {
-//        NSString *title = [NSString stringWithFormat:@"你最多只能选择%zd张照片", pickVc.maxCount];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
-//        [alert show];
-//        return;
-//    }
-//    
-//    model.isSelected = !model.isSelected;
-//    
-//    if (model.isSelected) {
-//        [self.selectIndexPaths addObject:indexPath];
-//        model.index = self.selectIndexPaths.count;
-//        model.asset = _fetchResult[indexPath.item-1];
-//        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//    } else {
-//        [self.selectIndexPaths removeObject:indexPath];
-//        model.asset = nil;
-//        NSMutableArray *indexPaths = [NSMutableArray array];
-//        [indexPaths addObject:indexPath];
-//        
-//        for (HUImageSelectModel *obj in self.selectModels) {
-//            if (obj != model && obj.index > model.index) {
-//                obj.index -= 1;
-//                [indexPaths addObject:obj.indexPath];
-//            }
-//        }
-//        
-//        [collectionView reloadItemsAtIndexPaths:indexPaths];
-//    }
-    
-   // [self.uploadButton setTitle:[NSString stringWithFormat:@"上传(%zd)", self.selectIndexPaths.count] forState:UIControlStateNormal];
 }
 
 
@@ -450,9 +413,12 @@
         _collectionView.delegate = self;
         _collectionView.backgroundColor = UIColorMake(238, 241, 242);
         _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-//        if (@available(iOS 11.0, *)) {
-//            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//        }
+   
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+#endif
 
         [_collectionView setAlwaysBounceVertical:YES];
         [_collectionView registerClass:[HUTakePhotoCell class] forCellWithReuseIdentifier:[HUTakePhotoCell reuseIdentifier]];

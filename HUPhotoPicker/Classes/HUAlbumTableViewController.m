@@ -167,7 +167,7 @@
     options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
     _allPhotos = [PHAsset fetchAssetsWithOptions:options];
     
-    
+    [self.tableView reloadData];
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
 }
 
