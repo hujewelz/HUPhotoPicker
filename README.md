@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/HUPhotoPicker.svg?style=flat)](http://cocoapods.org/pods/HUPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HUPhotoPicker.svg?style=flat)](http://cocoapods.org/pods/HUPhotoPicker)
 
+![screenshot](https://github.com/hujewelz/HUPhotoPicker/blob/master/screenshots/1.jpg)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
