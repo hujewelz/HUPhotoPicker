@@ -108,25 +108,29 @@
         [self takePhoto];
         return;
     }
+    
+    
+    
     PHAsset *asset = _fetchResult[indexPath.item-1];
     if (asset.mediaType != PHAssetMediaTypeImage) {
         return;
     }
     
     HUImageSelectModel *model = self.selectModels[indexPath.item-1];
+    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+    if (self.selectIndexPaths.count >= pickVc.maxCount && !model.isSelected) {
+        NSString *title = [NSString stringWithFormat:@"你最多只能选择%zd张照片", pickVc.maxCount];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
     
     if (!model.isSelected) {
         [[HUPhotoManager sharedInstance] checkPhotoIsAvaliableWithAsset:asset progress:^(double progress) {
             
         } completed:^(BOOL avaliable, UIImage * _Nonnull image) {
             if (avaliable) {
-                HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
-                if (self.selectIndexPaths.count >= pickVc.maxCount && !model.isSelected) {
-                    NSString *title = [NSString stringWithFormat:@"你最多只能选择%zd张照片", pickVc.maxCount];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
-                    [alert show];
-                    return;
-                }
+                
                 
                 model.isSelected = !model.isSelected;
                 
