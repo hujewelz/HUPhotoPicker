@@ -316,8 +316,8 @@
     NSString *rightTitle = self.selectIndexPaths.count > 0 ? [NSString stringWithFormat:@"确定(%zd/%zd)", self.selectIndexPaths.count, pickVc.maxCount] : @"确定";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:rightTitle style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
     self.navigationItem.rightBarButtonItem.enabled = self.selectIndexPaths.count > 0;
-    NSDictionary *attribute = @{NSForegroundColorAttributeName:UIColorMake(48, 144, 255), NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:attribute forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:pickVc.barItemNormalTextAttribute forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:pickVc.barItemDisableTextAttribute forState:UIControlStateDisabled];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -333,6 +333,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarItemClicked)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    HUImagePickerViewController *pickVc = (HUImagePickerViewController *)self.navigationController;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:pickVc.barItemNormalTextAttribute forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:pickVc.barItemDisableTextAttribute forState:UIControlStateDisabled];
     
     [self.view addSubview:self.collectionView];
     [self.view addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.collectionView]];

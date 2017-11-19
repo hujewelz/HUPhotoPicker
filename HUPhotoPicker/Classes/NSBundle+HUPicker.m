@@ -21,8 +21,6 @@
     return bundle;
 }
 
-+ (UIImage *)hu_imageNamed:(NSString *)name {
-    return [UIImage imageNamed:name inBundle:[self hu_bundle] compatibleWithTraitCollection:nil];
-}
+
 
 @end

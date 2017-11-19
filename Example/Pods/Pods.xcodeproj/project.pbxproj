@@ -58,6 +58,8 @@
 		BEFC945F4ECA52A3E8214F718C8092A9 /* UIBarButtonItem+HUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AA27B18FC16E32D9A90CEECC2C0E07 /* UIBarButtonItem+HUButton.m */; };
 		BF0139FF6336269A885E7AD0F70A4006 /* HUPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5858EFA8AECE7D415AC8C5DCB3401B4E /* HUPhotoPicker.bundle */; };
 		C0CFDAB863788EBC549F2D285C7A1347 /* album_open_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C33D2E17494917D7D5D25E8DBBFBC013 /* album_open_icon@3x.png */; };
+		C2F540CE1FC122D100CEB9AF /* UIImage+HUPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F540CC1FC122D100CEB9AF /* UIImage+HUPicker.h */; };
+		C2F540CF1FC122D100CEB9AF /* UIImage+HUPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F540CD1FC122D100CEB9AF /* UIImage+HUPicker.m */; };
 		CD606A8D8D4F2A875BE60DC3ADF76A3F /* photo_button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8DB164991DFAE6F6343E33D9E3B7B3 /* photo_button_normal@2x.png */; };
 		CED962187AB331B55F87B772AE68EB66 /* HUAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA343C39BEEE5E95B9EBD9680EDEA78 /* HUAlbumCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D236270B16CF0E42484C6FDE03FC7A1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AF6E9E67D620E639E17F9B0A8B56EF /* Foundation.framework */; };
@@ -154,6 +156,8 @@
 		B2CC892863FD823D6F4582A31FAF631B /* Pods-HUPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B30DD51A463C8CD015A252D92E340CFA /* image_selected@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "image_selected@2x.png"; sourceTree = "<group>"; };
 		BBE82CC7BB8DBAE24CA48F89804DEE0D /* album_close_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "album_close_icon@3x.png"; sourceTree = "<group>"; };
+		C2F540CC1FC122D100CEB9AF /* UIImage+HUPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+HUPicker.h"; sourceTree = "<group>"; };
+		C2F540CD1FC122D100CEB9AF /* UIImage+HUPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HUPicker.m"; sourceTree = "<group>"; };
 		C33D2E17494917D7D5D25E8DBBFBC013 /* album_open_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "album_open_icon@3x.png"; sourceTree = "<group>"; };
 		C47BD88980D7ED118903ADB99CDD088A /* Pods-HUPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8BA1BE88BBF17A2A105043910EEFB73 /* Pods-HUPhotoPicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HUPhotoPicker_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				3ECF3DBB401E0359298C22F1E63D2ECB /* UIView+HUConstraint.m */,
 				51C0F9871F7B7BEF00A5A483 /* HUNavTitleView.h */,
 				51C0F9881F7B7BEF00A5A483 /* HUNavTitleView.m */,
+				C2F540CC1FC122D100CEB9AF /* UIImage+HUPicker.h */,
+				C2F540CD1FC122D100CEB9AF /* UIImage+HUPicker.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				368CB5286773B98B4426F059157663AB /* HUTakePhotoCell.h in Headers */,
 				2B4D5AFDF15CFCE39217D97A03293E60 /* HUToast.h in Headers */,
 				0D149018AF5F33B5A1C0FFDF0F560AA7 /* NSBundle+HUPicker.h in Headers */,
+				C2F540CE1FC122D100CEB9AF /* UIImage+HUPicker.h in Headers */,
 				738E58FE85F76CA5A56EBF4CF552614D /* UIBarButtonItem+HUButton.h in Headers */,
 				3DD507FC185328FBA3EBCDF81691B2C6 /* UIView+HUConstraint.h in Headers */,
 				51C0F9891F7B7BEF00A5A483 /* HUNavTitleView.h in Headers */,
@@ -627,6 +634,7 @@
 				476582C1C3A1224F0B766E0C46EB7454 /* HUAlbumCell.m in Sources */,
 				79BF514B6799582CDAAAEFD7BC1D4EC8 /* HUAlbumTableViewController.m in Sources */,
 				6E1FE98499A48B7062807A3CBFB8C2D9 /* HUImageGridCell.m in Sources */,
+				C2F540CF1FC122D100CEB9AF /* UIImage+HUPicker.m in Sources */,
 				51C0F98A1F7B7BEF00A5A483 /* HUNavTitleView.m in Sources */,
 				238DC1A3F0AFC39B33D7723E4DAB2C41 /* HUImageGridViewController.m in Sources */,
 				3A0EC04ECB6AEA13CBD4E11FABE96D8C /* HUImagePickerViewController.m in Sources */,

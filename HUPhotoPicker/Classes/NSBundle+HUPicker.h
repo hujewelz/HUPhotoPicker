@@ -12,6 +12,5 @@
 
 + (instancetype)hu_bundle;
 
-+ (UIImage *)hu_imageNamed:(NSString *)name;
 
 @end

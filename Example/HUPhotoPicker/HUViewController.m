@@ -31,6 +31,8 @@
 - (IBAction)pickImage:(id)sender {
     
     HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+//    picker.barItemNormalTextAttribute = @{NSForegroundColorAttributeName: [UIColor redColor]};
+//    picker.barItemDisableTextAttribute = @{NSForegroundColorAttributeName: [UIColor yellowColor]};
     picker.delegate = self;
     [self presentViewController:picker animated:YES completion:nil];
 }

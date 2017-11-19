@@ -11,5 +11,6 @@
 
 #import <Photos/PHAsset.h>
 #import "HUImagePickerViewController.h"
+#import "HUPhotoManager.h"
 
 #endif /* HUPhotoPicker_h */

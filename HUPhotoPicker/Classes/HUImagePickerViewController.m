@@ -48,18 +48,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    [[UINavigationBar appearance] setTintColor:UIColorMake(30, 30, 30)];
-    NSDictionary *titleAttribute = @{NSForegroundColorAttributeName:UIColorMake(30, 30, 30), NSFontAttributeName:[UIFont systemFontOfSize:17]};
-    [[UINavigationBar appearance] setTitleTextAttributes:titleAttribute];
+    [self.navigationBar setTintColor:UIColorMake(30, 30, 30)];
+
+    self.normalTitleTextAttribute = @{NSForegroundColorAttributeName:UIColorMake(30, 30, 30), NSFontAttributeName:[UIFont systemFontOfSize:17]};
     
     //设置正常状态
-    NSDictionary *attribute = @{NSForegroundColorAttributeName:UIColorMake(81, 88, 102), NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    [[UIBarButtonItem appearance] setTitleTextAttributes:attribute forState:UIControlStateNormal];
-    
+    self.barItemNormalTextAttribute =  @{NSForegroundColorAttributeName:UIColorMake(81, 88, 102), NSFontAttributeName:[UIFont systemFontOfSize:15]};
+
     //设置不可用状态
-    NSDictionary *disAttribute = @{NSForegroundColorAttributeName:UIColorMake(209, 209, 209), NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    [[UIBarButtonItem appearance] setTitleTextAttributes:disAttribute forState:UIControlStateDisabled];
+    self.barItemDisableTextAttribute = @{NSForegroundColorAttributeName:UIColorMake(209, 209, 209), NSFontAttributeName:[UIFont systemFontOfSize:15]};
+  
     
 //    PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
 //    if (author == PHAuthorizationStatusNotDetermined || author == PHAuthorizationStatusAuthorized) {
@@ -78,6 +76,19 @@
     return _delegate;
 }
 
+- (void)setNormalTitleTextAttribute:(NSDictionary *)normalTitleTextAttribute {
+    _normalTitleTextAttribute = normalTitleTextAttribute;
+    [self.navigationBar setTitleTextAttributes:_normalTitleTextAttribute];
+}
 
+- (void)setBarItemNormalTextAttribute:(NSDictionary *)barItemNormalTextAttribute {
+    _barItemNormalTextAttribute = barItemNormalTextAttribute;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:barItemNormalTextAttribute forState:UIControlStateNormal];
+}
+
+- (void)setBarItemDisableTextAttribute:(NSDictionary *)barItemDisableTextAttribute {
+    _barItemDisableTextAttribute = barItemDisableTextAttribute;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:barItemDisableTextAttribute forState:UIControlStateDisabled];
+}
 
 @end
