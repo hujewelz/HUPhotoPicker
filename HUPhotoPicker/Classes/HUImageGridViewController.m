@@ -220,16 +220,17 @@
 }
 
 - (void)fetchPhotos {
-    
     NSMutableArray *assets = [NSMutableArray arrayWithCapacity:self.selectIndexPaths.count];
     
-    
+    for (NSUInteger i = 0; i < self.selectIndexPaths.count; i++) {
+        [assets addObject:[HUImageSelectModel new]];
+    }
     for (HUImageSelectModel *model in self.selectModels) {
         if (model.isSelected) {
-            [assets addObject:model.asset];
+            [assets replaceObjectAtIndex:model.index-1 withObject:model.asset];
         }
     }
-    
+ 
     if (assets.count == 0) {
         return;
     }
@@ -273,7 +274,7 @@
 - (void)fetchPhotoWithAsset:(NSArray<PHAsset *> *)assets {
     
     [[HUPhotoManager sharedInstance] fetchPhotosWithAssets:assets progress:nil completed:^(NSArray<UIImage *> * _Nonnull images) {
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (![self.navigationController isKindOfClass:[HUImagePickerViewController class]]) {
                 return;

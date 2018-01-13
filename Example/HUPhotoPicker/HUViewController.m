@@ -31,6 +31,7 @@
 - (IBAction)pickImage:(id)sender {
     
     HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+    picker.networkAccessAllowed = YES;
 //    picker.barItemNormalTextAttribute = @{NSForegroundColorAttributeName: [UIColor redColor]};
 //    picker.barItemDisableTextAttribute = @{NSForegroundColorAttributeName: [UIColor yellowColor]};
     picker.delegate = self;

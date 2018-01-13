@@ -58,7 +58,6 @@
         }
     }
     
-    
     if (downloadeds.count >= assets.count) {
         if (progress) {
             progress(1);
