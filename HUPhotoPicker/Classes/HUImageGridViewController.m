@@ -376,7 +376,7 @@
     
     if (_fetchResult == nil) {
         PHFetchOptions *options = [PHFetchOptions new];
-        options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+        options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"modificationDate" ascending:NO]];
         self.fetchResult = [PHAsset fetchAssetsWithOptions:options];
     }
     

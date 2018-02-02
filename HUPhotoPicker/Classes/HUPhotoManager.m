@@ -10,7 +10,7 @@
 #import <Photos/Photos.h>
 
 
-@interface HUPhotoManager()
+@interface HUPhotoManager()<PHPhotoLibraryChangeObserver>
 
 @property (nonatomic, copy) NSMutableDictionary<NSString *, UIImage *> *imageCache;
 @property (nonatomic, copy) NSMutableDictionary<NSString *, NSNumber *> * imageRequestIDs;
@@ -32,6 +32,9 @@
 - (instancetype)init {
     if (self == [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearCache) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+        if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
+            [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+        }
     }
     return self;
 }
@@ -39,7 +42,14 @@
 
 
 - (void)dealloc {
+    if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
+        [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+    }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)photoLibraryDidChange:(PHChange *)changeInstance {
+    [self.imageCache removeAllObjects];
 }
 
 - (void)fetchPhotosWithAssets:(nonnull NSArray<PHAsset *> *)assets
