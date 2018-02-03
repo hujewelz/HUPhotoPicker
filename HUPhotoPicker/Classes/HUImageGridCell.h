@@ -19,6 +19,8 @@
 @property (nonatomic, assign) BOOL isDegraded;
 @property (nonatomic, copy) NSString *representedAssetIdentifier;
 
+@property (nonatomic, strong) PHAsset *asset;
+
 @property (nonatomic, strong) HUImageSelectModel *model;
 
 @end

@@ -9,11 +9,13 @@
 #import "HUImageGridCell.h"
 #import "Asset.h"
 #import "UIView+HUConstraint.h"
-//#import "NSBundle+HUPicker.h"
+#import <Photos/Photos.h>
 
 @interface HUImageGridCell ()
 
 @property (nonatomic, strong) UIButton *checkButton;
+@property (nonatomic, strong) UIImageView *videoIcon;
+@property (nonatomic, strong) UIView *disableMask;
 
 
 @end
@@ -41,10 +43,16 @@
     }
 }
 
+- (void)setAsset:(PHAsset *)asset {
+    _asset = asset;
+    _checkButton.hidden = asset.mediaType != PHAssetMediaTypeImage;
+    _videoIcon.hidden = asset.mediaType != PHAssetMediaTypeVideo;
+    _disableMask.hidden = _videoIcon.isHidden;
+}
+
 - (void)setIsDegraded:(BOOL)isDegraded {
     _isDegraded = isDegraded;
     self.degradedButton.hidden = !isDegraded;
-//    NSLog(@"is degraded: %zd", isDegraded);
 }
 
 - (void)setupView {
@@ -57,10 +65,17 @@
     [self.contentView addConstraintsWithVisualFormat:@"H:[v0(==22)]-2-|" views:@[self.checkButton]];
     [self.contentView addConstraintsWithVisualFormat:@"V:|-2-[v0(==22)]" views:@[self.checkButton]];
     
-    
     [self.contentView addSubview:self.degradedButton];
     [self.contentView addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.degradedButton]];
     [self.contentView addConstraintsWithVisualFormat:@"V:|[v0]|" views:@[self.degradedButton]];
+    
+    [self.contentView addSubview:self.disableMask];
+    [self.contentView addConstraintsWithVisualFormat:@"H:|[v0]|" views:@[self.disableMask]];
+    [self.contentView addConstraintsWithVisualFormat:@"V:|[v0]|" views:@[self.disableMask]];
+    
+    [self.contentView addSubview:self.videoIcon];
+    [self.contentView addConstraintsWithVisualFormat:@"H:[v0]-4-|" views:@[self.videoIcon]];
+    [self.contentView addConstraintsWithVisualFormat:@"V:|-4-[v0]" views:@[self.videoIcon]];
 
 }
 
@@ -88,14 +103,31 @@
     return _checkButton;
 }
 
+- (UIImageView *)videoIcon {
+    if (_videoIcon == nil) {
+        _videoIcon = [UIImageView new];
+        _videoIcon.image = UIImageMake(@"icon_video");
+        _videoIcon.hidden = YES;
+    }
+    return _videoIcon;
+}
+
 - (UIButton *)degradedButton {
     if (_degradedButton == nil) {
         _degradedButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _degradedButton.adjustsImageWhenHighlighted = NO;
-        //_degradedButton.backgroundColor = [UIColor redColor];
         _degradedButton.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
     }
     return _degradedButton;
+}
+
+- (UIView *)disableMask {
+    if (_disableMask == nil) {
+        _disableMask = [UIView new];
+        _disableMask.backgroundColor = [UIColor colorWithWhite:0 alpha:0.45];
+        _disableMask.hidden = YES;
+    }
+    return _disableMask;
 }
 
 @end

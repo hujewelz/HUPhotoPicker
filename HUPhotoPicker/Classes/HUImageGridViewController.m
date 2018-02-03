@@ -93,10 +93,10 @@
     
     HUImageGridCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[HUImageGridCell reuseIdentifier] forIndexPath:indexPath];
     cell.representedAssetIdentifier = asset.localIdentifier;
+    cell.asset = asset;
     cell.model = self.selectModels[indexPath.item-1];
     [_cachingImageManager requestImageForAsset:asset targetSize:_targetSize contentMode:PHImageContentModeDefault options:_options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         BOOL isDegraded = [info[PHImageResultIsDegradedKey] boolValue];
-        
         if (result && [cell.representedAssetIdentifier isEqualToString: asset.localIdentifier]) {
             cell.thumbnail.image = result;
             cell.isDegraded = isDegraded;
